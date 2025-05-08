@@ -1,0 +1,56 @@
+Scene: Untitled Scene
+Entities:
+  - Entity: 8418553752906261603
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Square
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 1
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 0
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: true
+    ScriptComponentManager:
+      count: 0
+  - Entity: 6968922530874173219
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Main Camera
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 1.0471976
+        PerspectiveNear: 0.01
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
+    ScriptComponentManager:
+      count: 0

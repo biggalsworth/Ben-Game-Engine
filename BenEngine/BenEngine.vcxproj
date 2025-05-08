@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Dist|x64">
+      <Configuration>Dist</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B087A5EC-1CF2-5963-6530-0B09D1D937B8}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>BenEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\bin\Debug-windows-x86_64\BenEngine\</OutDir>
+    <IntDir>..\bin-int\Debug-windows-x86_64\BenEngine\</IntDir>
+    <TargetName>BenEngine</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\bin\Release-windows-x86_64\BenEngine\</OutDir>
+    <IntDir>..\bin-int\Release-windows-x86_64\BenEngine\</IntDir>
+    <TargetName>BenEngine</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\bin\Dist-windows-x86_64\BenEngine\</OutDir>
+    <IntDir>..\bin-int\Dist-windows-x86_64\BenEngine\</IntDir>
+    <TargetName>BenEngine</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Engine_PCH.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;YAML_CPP_STATIC_DEFINE;GLFW_INCLUDE_NONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;Middleware;Middleware\GLFW\include;Middleware\Glad\include;Middleware\spdlog\include;Middleware\glm;Middleware\IMGUI;Middleware\enTT\single_include\entt;Middleware\ImGuizmo;Middleware\YAML-CPP\include;Middleware\Box2D\include;Middleware\FMOD\inc;Middleware\Mono\include;Middleware\Enet\include;Middleware\Filewatch;Middleware\SFML\include;Middleware\ImPlot;Middleware\Recast\Recast\Include;Middleware\Recast\Recast\Source;Middleware\Recast\Detour\Include;Middleware\Recast\Detour\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>fmod_vc.lib;mono-2.0-sgen.lib;Pdh.lib;Recast.lib;Detour.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Middleware\FMOD\lib;Middleware\Mono\lib;Middleware\SFML\lib;Middleware\Recast\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST "..\BenEngine\Middleware\FMOD\lib\fmod.dll"\ (xcopy /Q /E /Y /I "..\BenEngine\Middleware\FMOD\lib\fmod.dll" "..\bin\Debug-windows-x86_64\BenEngine" &gt; nul) ELSE (xcopy /Q /Y /I "..\BenEngine\Middleware\FMOD\lib\fmod.dll" "..\bin\Debug-windows-x86_64\BenEngine" &gt; nul)
+IF EXIST "..\BenEngine\Resource\Scripts\ScriptCore.dll"\ (xcopy /Q /E /Y /I "..\BenEngine\Resource\Scripts\ScriptCore.dll" "..\bin\Debug-windows-x86_64\BenEngine" &gt; nul) ELSE (xcopy /Q /Y /I "..\BenEngine\Resource\Scripts\ScriptCore.dll" "..\bin\Debug-windows-x86_64\BenEngine" &gt; nul)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Engine_PCH.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;YAML_CPP_STATIC_DEFINE;GLFW_INCLUDE_NONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;Middleware;Middleware\GLFW\include;Middleware\Glad\include;Middleware\spdlog\include;Middleware\glm;Middleware\IMGUI;Middleware\enTT\single_include\entt;Middleware\ImGuizmo;Middleware\YAML-CPP\include;Middleware\Box2D\include;Middleware\FMOD\inc;Middleware\Mono\include;Middleware\Enet\include;Middleware\Filewatch;Middleware\SFML\include;Middleware\ImPlot;Middleware\Recast\Recast\Include;Middleware\Recast\Recast\Source;Middleware\Recast\Detour\Include;Middleware\Recast\Detour\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>fmod_vc.lib;mono-2.0-sgen.lib;Pdh.lib;Recast.lib;Detour.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Middleware\FMOD\lib;Middleware\Mono\lib;Middleware\SFML\lib;Middleware\Recast\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST "..\BenEngine\Middleware\FMOD\lib\fmod.dll"\ (xcopy /Q /E /Y /I "..\BenEngine\Middleware\FMOD\lib\fmod.dll" "..\bin\Release-windows-x86_64\BenEngine" &gt; nul) ELSE (xcopy /Q /Y /I "..\BenEngine\Middleware\FMOD\lib\fmod.dll" "..\bin\Release-windows-x86_64\BenEngine" &gt; nul)
+IF EXIST "..\BenEngine\Resource\Scripts\ScriptCore.dll"\ (xcopy /Q /E /Y /I "..\BenEngine\Resource\Scripts\ScriptCore.dll" "..\bin\Release-windows-x86_64\BenEngine" &gt; nul) ELSE (xcopy /Q /Y /I "..\BenEngine\Resource\Scripts\ScriptCore.dll" "..\bin\Release-windows-x86_64\BenEngine" &gt; nul)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Engine_PCH.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;YAML_CPP_STATIC_DEFINE;GLFW_INCLUDE_NONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;Middleware;Middleware\GLFW\include;Middleware\Glad\include;Middleware\spdlog\include;Middleware\glm;Middleware\IMGUI;Middleware\enTT\single_include\entt;Middleware\ImGuizmo;Middleware\YAML-CPP\include;Middleware\Box2D\include;Middleware\FMOD\inc;Middleware\Mono\include;Middleware\Enet\include;Middleware\Filewatch;Middleware\SFML\include;Middleware\ImPlot;Middleware\Recast\Recast\Include;Middleware\Recast\Recast\Source;Middleware\Recast\Detour\Include;Middleware\Recast\Detour\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>fmod_vc.lib;mono-2.0-sgen.lib;Pdh.lib;Recast.lib;Detour.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Middleware\FMOD\lib;Middleware\Mono\lib;Middleware\SFML\lib;Middleware\Recast\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST "..\BenEngine\Middleware\FMOD\lib\fmod.dll"\ (xcopy /Q /E /Y /I "..\BenEngine\Middleware\FMOD\lib\fmod.dll" "..\bin\Dist-windows-x86_64\BenEngine" &gt; nul) ELSE (xcopy /Q /Y /I "..\BenEngine\Middleware\FMOD\lib\fmod.dll" "..\bin\Dist-windows-x86_64\BenEngine" &gt; nul)
+IF EXIST "..\BenEngine\Resource\Scripts\ScriptCore.dll"\ (xcopy /Q /E /Y /I "..\BenEngine\Resource\Scripts\ScriptCore.dll" "..\bin\Dist-windows-x86_64\BenEngine" &gt; nul) ELSE (xcopy /Q /Y /I "..\BenEngine\Resource\Scripts\ScriptCore.dll" "..\bin\Dist-windows-x86_64\BenEngine" &gt; nul)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Middleware\ImGuizmo\GraphEditor.h" />
+    <ClInclude Include="Middleware\ImGuizmo\ImCurveEdit.h" />
+    <ClInclude Include="Middleware\ImGuizmo\ImGradient.h" />
+    <ClInclude Include="Middleware\ImGuizmo\ImGuizmo.h" />
+    <ClInclude Include="Middleware\ImGuizmo\ImSequencer.h" />
+    <ClInclude Include="Middleware\ImGuizmo\ImZoomSlider.h" />
+    <ClInclude Include="Middleware\ImPlot\implot.h" />
+    <ClInclude Include="Middleware\ImPlot\implot_internal.h" />
+    <ClInclude Include="Middleware\Recast\Include\DetourAlloc.h" />
+    <ClInclude Include="Middleware\Recast\Include\DetourAssert.h" />
+    <ClInclude Include="Middleware\Recast\Include\DetourCommon.h" />
+    <ClInclude Include="Middleware\Recast\Include\DetourMath.h" />
+    <ClInclude Include="Middleware\Recast\Include\DetourNavMesh.h" />
+    <ClInclude Include="Middleware\Recast\Include\DetourNavMeshBuilder.h" />
+    <ClInclude Include="Middleware\Recast\Include\DetourNavMeshQuery.h" />
+    <ClInclude Include="Middleware\Recast\Include\DetourNode.h" />
+    <ClInclude Include="Middleware\Recast\Include\DetourStatus.h" />
+    <ClInclude Include="Middleware\Recast\Include\Recast.h" />
+    <ClInclude Include="Middleware\Recast\Include\RecastAlloc.h" />
+    <ClInclude Include="Middleware\Recast\Include\RecastAssert.h" />
+    <ClInclude Include="src\AI\AIAgent.h" />
+    <ClInclude Include="src\AI\NavMesh.h" />
+    <ClInclude Include="src\Audio\SoundSystem.h" />
+    <ClInclude Include="src\Core\Application.h" />
+    <ClInclude Include="src\Core\Core.h" />
+    <ClInclude Include="src\Core\EntryPoint.h" />
+    <ClInclude Include="src\Core\Input.h" />
+    <ClInclude Include="src\Core\KeyCodes.h" />
+    <ClInclude Include="src\Core\Layer.h" />
+    <ClInclude Include="src\Core\LayerStack.h" />
+    <ClInclude Include="src\Core\MouseCodes.h" />
+    <ClInclude Include="src\Core\Timestep.h" />
+    <ClInclude Include="src\Core\UUID.h" />
+    <ClInclude Include="src\Core\Window.h" />
+    <ClInclude Include="src\Editor\EditorLayer.h" />
+    <ClInclude Include="src\Editor\Panels\ConsolePanel.h" />
+    <ClInclude Include="src\Editor\Panels\ContentPanel.h" />
+    <ClInclude Include="src\Editor\Panels\InspectorPanel.h" />
+    <ClInclude Include="src\Editor\Panels\ProfilingPanel.h" />
+    <ClInclude Include="src\Editor\Panels\SceneHierarchyPanel.h" />
+    <ClInclude Include="src\Editor\Project.h" />
+    <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\Engine_PCH.h" />
+    <ClInclude Include="src\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Events\Event.h" />
+    <ClInclude Include="src\Events\KeyEvent.h" />
+    <ClInclude Include="src\Events\MouseEvent.h" />
+    <ClInclude Include="src\GUI\GUIComponents.h" />
+    <ClInclude Include="src\GUI\GUIManager.h" />
+    <ClInclude Include="src\GraphicsAPI\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\GraphicsAPI\stb_image.h" />
+    <ClInclude Include="src\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\ImGui\ImGuiLibrary.h" />
+    <ClInclude Include="src\Logging\Log.h" />
+    <ClInclude Include="src\Math\Math.h" />
+    <ClInclude Include="src\Network\NetworkClient.h" />
+    <ClInclude Include="src\Network\NetworkHost.h" />
+    <ClInclude Include="src\Network\NetworkManager.h" />
+    <ClInclude Include="src\Physics\PhysicsSystem.h" />
+    <ClInclude Include="src\Physics\Raycast.h" />
+    <ClInclude Include="src\Physics\Rigidbody2D.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFrameBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebufferUtils.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsPlatformUtils.h" />
+    <ClInclude Include="src\Platform\WindowsWindow.h" />
+    <ClInclude Include="src\Renderer\2D\Renderer2D.h" />
+    <ClInclude Include="src\Renderer\2D\Renderer2DData.h" />
+    <ClInclude Include="src\Renderer\3D\Renderer3D.h" />
+    <ClInclude Include="src\Renderer\Animation System\Animator.h" />
+    <ClInclude Include="src\Renderer\Camera\Camera.h" />
+    <ClInclude Include="src\Renderer\Camera\EditorCamera.h" />
+    <ClInclude Include="src\Renderer\Data\Buffer.h" />
+    <ClInclude Include="src\Renderer\Data\BufferLayout.h" />
+    <ClInclude Include="src\Renderer\Data\Framebuffer.h" />
+    <ClInclude Include="src\Renderer\Data\IndexBuffer.h" />
+    <ClInclude Include="src\Renderer\Data\Primatives\CircleVertex.h" />
+    <ClInclude Include="src\Renderer\Data\Primatives\LineVertex.h" />
+    <ClInclude Include="src\Renderer\Data\Primatives\QuadTextureVertex.h" />
+    <ClInclude Include="src\Renderer\Data\Primatives\QuadVertex.h" />
+    <ClInclude Include="src\Renderer\Data\UniformBuffer.h" />
+    <ClInclude Include="src\Renderer\Data\VertexArray.h" />
+    <ClInclude Include="src\Renderer\Data\VertexBuffer.h" />
+    <ClInclude Include="src\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Renderer\OpenGLTexture.h" />
+    <ClInclude Include="src\Renderer\Shader\Shader.h" />
+    <ClInclude Include="src\Renderer\Shader\ShaderLibrary.h" />
+    <ClInclude Include="src\Renderer\Subtexture.h" />
+    <ClInclude Include="src\Renderer\Texture.h" />
+    <ClInclude Include="src\Scene\Components.h" />
+    <ClInclude Include="src\Scene\Entity.h" />
+    <ClInclude Include="src\Scene\Scene.h" />
+    <ClInclude Include="src\Scene\SceneCamera.h" />
+    <ClInclude Include="src\Scene\SceneSerialiser.h" />
+    <ClInclude Include="src\Script\MonoManager.h" />
+    <ClInclude Include="src\Script\ScriptGlue.h" />
+    <ClInclude Include="src\Utils\PlatformUtils.h" />
+    <ClInclude Include="src\Utils\YamlConverter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Middleware\ImGuizmo\GraphEditor.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\ImGuizmo\ImCurveEdit.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\ImGuizmo\ImGradient.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\ImGuizmo\ImGuizmo.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\ImGuizmo\ImSequencer.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\ImPlot\implot.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\ImPlot\implot_demo.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\ImPlot\implot_items.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\DetourAlloc.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\DetourAssert.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\DetourCommon.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\DetourNavMesh.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\DetourNavMeshBuilder.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\DetourNavMeshQuery.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\DetourNode.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\Recast.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastAlloc.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastArea.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastAssert.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastContour.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastFilter.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastLayers.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastMesh.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastMeshDetail.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastRasterization.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Middleware\Recast\Include\RecastRegion.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\AI\AIAgent.cpp" />
+    <ClCompile Include="src\AI\NavMesh.cpp" />
+    <ClCompile Include="src\Audio\SoundSystem.cpp" />
+    <ClCompile Include="src\Core\Application.cpp" />
+    <ClCompile Include="src\Core\Core.cpp" />
+    <ClCompile Include="src\Core\Layer.cpp" />
+    <ClCompile Include="src\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Core\UUID.cpp" />
+    <ClCompile Include="src\Editor\BenEngineApp.cpp" />
+    <ClCompile Include="src\Editor\EditorLayer.cpp" />
+    <ClCompile Include="src\Editor\Panels\ConsolePanel.cpp" />
+    <ClCompile Include="src\Editor\Panels\ContentPanel.cpp" />
+    <ClCompile Include="src\Editor\Panels\InspectorPanel.cpp" />
+    <ClCompile Include="src\Editor\Panels\ProfilingPanel.cpp" />
+    <ClCompile Include="src\Editor\Panels\SceneHierarchyPanel.cpp" />
+    <ClCompile Include="src\Editor\Project.cpp" />
+    <ClCompile Include="src\Engine_PCH.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\GUI\GUIManager.cpp" />
+    <ClCompile Include="src\GraphicsAPI\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Logging\Log.cpp" />
+    <ClCompile Include="src\Math\Math.cpp" />
+    <ClCompile Include="src\Network\NetworkClient.cpp" />
+    <ClCompile Include="src\Network\NetworkHost.cpp" />
+    <ClCompile Include="src\Network\NetworkManager.cpp" />
+    <ClCompile Include="src\Physics\PhysicsSystem.cpp" />
+    <ClCompile Include="src\Physics\Raycast.cpp" />
+    <ClCompile Include="src\Physics\Rigidbody2D.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFrameBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsPlatformUtils.cpp" />
+    <ClCompile Include="src\Platform\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\WindowsWindow.cpp" />
+    <ClCompile Include="src\Renderer\2D\Renderer2D.cpp" />
+    <ClCompile Include="src\Renderer\3D\Renderer3D.cpp" />
+    <ClCompile Include="src\Renderer\Animation System\Animator.cpp" />
+    <ClCompile Include="src\Renderer\Camera\EditorCamera.cpp" />
+    <ClCompile Include="src\Renderer\Data\Buffer.cpp" />
+    <ClCompile Include="src\Renderer\Data\Framebuffer.cpp" />
+    <ClCompile Include="src\Renderer\Data\UniformBuffer.cpp" />
+    <ClCompile Include="src\Renderer\Data\VertexArray.cpp" />
+    <ClCompile Include="src\Renderer\OpenGLTexture.cpp" />
+    <ClCompile Include="src\Renderer\Shader\Shader.cpp" />
+    <ClCompile Include="src\Renderer\Shader\ShaderLibrary.cpp" />
+    <ClCompile Include="src\Renderer\Subtexture.cpp" />
+    <ClCompile Include="src\Renderer\Texture.cpp" />
+    <ClCompile Include="src\Scene\Entity.cpp" />
+    <ClCompile Include="src\Scene\Scene.cpp" />
+    <ClCompile Include="src\Scene\SceneCamera.cpp" />
+    <ClCompile Include="src\SceneSerialiser.cpp" />
+    <ClCompile Include="src\Script\MonoManager.cpp" />
+    <ClCompile Include="src\Script\ScriptGlue.cpp" />
+    <ClCompile Include="src\Utils\PlatformUtils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Scripts\Intermediates\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Middleware\GLFW\GLFW.vcxproj">
+      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Middleware\Glad\Glad.vcxproj">
+      <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Middleware\IMGUI\IMGUI.vcxproj">
+      <Project>{606F530D-CC83-7BBE-9505-1F1E01D977EF}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Middleware\YAML-CPP\YAML-CPP.vcxproj">
+      <Project>{A80C36E3-94D9-90EE-BDF2-7E96A91EC67C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Middleware\Box2D\Box2D.vcxproj">
+      <Project>{A434E80C-1049-10BE-D9CA-B31D459E0CEF}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Middleware\Enet\Enet.vcxproj">
+      <Project>{11C7847C-FDFD-850D-A6EA-6B109200020F}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

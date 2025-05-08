@@ -1,0 +1,2 @@
+C:\Users\jukesb4\Documents\GitHub\GameEngine-12129991\BenEngine\Middleware\CppSharp\bin-int\Debug-windows-x86_64\CppSharp\CppSharp.csproj.AssemblyReference.cache
+C:\Users\jukesb4\Documents\GitHub\GameEngine-12129991\BenEngine\Middleware\CppSharp\bin-int\Debug-windows-x86_64\CppSharp\CppSharp.csproj.CoreCompileInputs.cache

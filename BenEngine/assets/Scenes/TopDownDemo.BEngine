@@ -1,0 +1,347 @@
+Scene: Untitled Scene
+Entities:
+  - Entity: 345797339890567760
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Pickup
+    TransformComponent:
+      Translation: [-0.2198956, -6.382539, 6.1035156e-05]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: D:\Github\GameEngine-12129991\Projects\GameDemo\Assets\Textures\Health.png
+      tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 1
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 0
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: true
+    ScriptComponentManager:
+      count: 1
+    ScriptComponent0:
+      folderPath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets/Scripts
+      filePath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets/Scripts\HealthPickup.cs
+      className: HealthPickup
+  - Entity: 6509745083167560942
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Player
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    AudioSourceComponent:
+      position: [0, 0, 0]
+      velocity: [0, 0, 0]
+      soundFile: GameEngine-12129991\Projects\GameDemo\Assets\Audio\laser-shot-ingame-230500.mp3
+      volume: 0.18
+      pitch: 1
+      MaxRange: 100
+      MinRange: 0
+      loops: false
+      OnAwake: false
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 0
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 2
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: false
+    NetworkClientComponent:
+      port: 5046
+      IPAddress: 127.0.0.1
+    ScriptComponentManager:
+      count: 2
+    ScriptComponent0:
+      folderPath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets/Scripts
+      filePath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets\Scripts\PlayerMovement.cs
+      className: PlayerMovement
+    ScriptComponent1:
+      folderPath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets/Scripts
+      filePath: D:\Github\GameEngine-12129991\Projects\GameDemo\Assets\Scripts\PlayerStats.cs
+      className: PlayerStats
+  - Entity: 2513863142654782169
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Enemy
+    TransformComponent:
+      Translation: [6.080712, 0.27176124, 0.0010986375]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    AudioSourceComponent:
+      position: [0, 0, 0]
+      velocity: [0, 0, 0]
+      soundFile: GameEngine-12129991\Projects\GameDemo\Assets\Audio\laser-shot-ingame-230500.mp3
+      volume: 0.25
+      pitch: 1
+      MaxRange: 100
+      MinRange: 0
+      loops: false
+      OnAwake: false
+    SpriteRendererComponent:
+      Colour: [0.9156118, 0.8937521, 0.33997402, 1]
+      meshType: 0
+      Path: src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 0
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 2
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: false
+    ScriptComponentManager:
+      count: 2
+    ScriptComponent0:
+      folderPath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets/Scripts
+      filePath: D:\Github\GameEngine-12129991\Projects\GameDemo\Assets\Scripts\EnemyStats.cs
+      className: EnemyStats
+    ScriptComponent1:
+      folderPath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets/Scripts
+      filePath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets\Scripts\EnemyDetection.cs
+      className: EnemyDetection
+  - Entity: 16019246184697556862
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Main Camera
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 1.0471976
+        PerspectiveNear: 0.01
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
+    AudioListenerComponent:
+      {}
+    NetworkHostComponent:
+      port: 5046
+      IPAddress: 127.0.0.1
+    ScriptComponentManager:
+      count: 2
+    ScriptComponent0:
+      folderPath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets/Scripts
+      filePath: D:\Github\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets\Scripts\NetworkManager.cs
+      className: NetworkManager
+    ScriptComponent1:
+      folderPath: C:\Users\jukesb4\Documents\GitHub\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets/Scripts
+      filePath: C:\Users\jukesb4\Documents\GitHub\GameEngine-12129991\BenEngine\../Projects/GameDemo\Assets/Scripts\CameraController.cs
+      className: CameraController
+  - Entity: 17689862424987093111
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Square
+    TransformComponent:
+      Translation: [27.964666, -5.2702765, -0.0067749005]
+      Rotation: [0, -0, -3.1407583]
+      Scale: [1.0000445, 25.203392, 1]
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 1
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 0
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: false
+    ScriptComponentManager:
+      count: 0
+  - Entity: 5250453493961274979
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Square
+    TransformComponent:
+      Translation: [3.1239963, -0.013515472, -0.01776122]
+      Rotation: [0, -0, 0]
+      Scale: [1, 14.29249, 1]
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 1
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 0
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: false
+    ScriptComponentManager:
+      count: 0
+  - Entity: 16257315610066880518
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Square
+    TransformComponent:
+      Translation: [10.933018, 6.3549275, 1.5447998]
+      Rotation: [0, -0, 1.5712847]
+      Scale: [0.9999645, 35.794914, 1]
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 1
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 0
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: false
+    ScriptComponentManager:
+      count: 0
+  - Entity: 17177458394629961863
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Square
+    TransformComponent:
+      Translation: [-6.4601297, -5.2990003, -0.0067749005]
+      Rotation: [0, -0, -3.1407583]
+      Scale: [1.0000278, 25.202938, 1]
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 1
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 0
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: false
+    ScriptComponentManager:
+      count: 0
+  - Entity: 16858068287536048774
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Square
+    TransformComponent:
+      Translation: [10.878557, -17.334291, -0.0003051553]
+      Rotation: [0, -0, 1.5712847]
+      Scale: [0.99998105, 35.794914, 1]
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 1
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 0
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: false
+    ScriptComponentManager:
+      count: 0
+  - Entity: 4642177495589899849
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Empty Entity
+    TransformComponent:
+      Translation: [12.324112, -12.314116, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponentManager:
+      count: 0

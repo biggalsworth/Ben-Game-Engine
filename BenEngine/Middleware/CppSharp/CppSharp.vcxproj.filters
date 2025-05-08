@@ -1,0 +1,1490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{6917EFFE-D5F6-6D9A-DE0E-F9704A6DD4FB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AST">
+      <UniqueIdentifier>{045F2FA9-703E-AE44-7956-391BE5B414A6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CLI">
+      <UniqueIdentifier>{94662FA9-0046-AE44-095E-391B75BC14A6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Core">
+      <UniqueIdentifier>{A5D31CCF-91A0-77DA-BAB9-6582A6E5AC68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Core\Toolchains">
+      <UniqueIdentifier>{689F7CF2-D400-5A00-5D6E-A0B2C9CE90BF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser">
+      <UniqueIdentifier>{ACAB687A-186C-E4B0-E1A6-2D2E4D26298D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bindings">
+      <UniqueIdentifier>{8996CB5B-7590-F4AD-5EFD-8ABE4A965A1A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bindings\CLI">
+      <UniqueIdentifier>{F09F70ED-DCAF-1CBE-4569-81DC31980B57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bindings\CSharp">
+      <UniqueIdentifier>{F930B58F-6549-9CB9-2EF6-2B539ACD3053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0">
+      <UniqueIdentifier>{29A7F76B-95C3-E95C-5E9B-56CACA76531E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc">
+      <UniqueIdentifier>{BBCFA397-A778-0BC7-D00E-2746BC162608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0">
+      <UniqueIdentifier>{6B849E78-D76B-896E-E059-8BEA4CC02C31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu">
+      <UniqueIdentifier>{CBF02AFD-B76E-7B96-A066-392E8C83BDBE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi">
+      <UniqueIdentifier>{39F4F990-A5DB-E486-AEC9-E6021A308849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc">
+      <UniqueIdentifier>{BDDB98C0-A96F-8E68-1234-E81CFEE6C85A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\Bootstrap">
+      <UniqueIdentifier>{F997CED1-65CF-1669-6ED9-7A8CDA8F3D62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CppParser\ParserGen">
+      <UniqueIdentifier>{22899D28-8EC0-E5BF-97CA-49E303810CB9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator">
+      <UniqueIdentifier>{6379B8BD-CF39-34F4-9874-7D7104F478D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\AST">
+      <UniqueIdentifier>{3A58676E-A66E-6504-EFE5-F0255B3B368C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Extensions">
+      <UniqueIdentifier>{A2B2AD52-8ED7-FCD2-B722-E262A3A6FBF0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Generators">
+      <UniqueIdentifier>{AC661034-988B-5FB4-C1D6-4444AD5A5ED2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Generators\C">
+      <UniqueIdentifier>{FEC7C479-EAD7-704A-5391-D5683FC05FE3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Generators\CLI">
+      <UniqueIdentifier>{93C916FE-7F84-06AA-283C-7FF414D6503A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Generators\CSharp">
+      <UniqueIdentifier>{BC1B70BD-28FF-7EFD-3102-AD399D64454E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Generators\Emscripten">
+      <UniqueIdentifier>{158F9188-8148-FC32-0AA8-160D7660B2A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Generators\NAPI">
+      <UniqueIdentifier>{83D6F5C0-EFEE-DCEA-B89B-6C8424737184}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Generators\QuickJS">
+      <UniqueIdentifier>{155A85F0-01AB-7032-2A0F-5FF416BF039C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Generators\QuickJS\Runtime">
+      <UniqueIdentifier>{48ACA514-3429-9957-5DA6-996B498235EB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Generators\TS">
+      <UniqueIdentifier>{42CA5DB2-AED7-8B98-37BE-8783A3CA574F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Passes">
+      <UniqueIdentifier>{E1D4757D-CD63-FF46-7682-134262F00FED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Types">
+      <UniqueIdentifier>{477B0BA7-B3DC-E8B4-3C4A-2F67A8AA1F74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Types\Std">
+      <UniqueIdentifier>{01FD70EB-6D34-B982-763E-1DA6E2F4DF7B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Utils">
+      <UniqueIdentifier>{03B91AA7-6F1A-F8B4-F887-3E6764E82E74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator\Utils\FSM">
+      <UniqueIdentifier>{187D20B8-84B4-684F-8DBE-CC72F9748F48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator.Tests">
+      <UniqueIdentifier>{C469ABA4-30CB-88B2-B938-CF642599BF71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator.Tests\AST">
+      <UniqueIdentifier>{1B912D7C-87C8-7513-90D2-D936FC889C0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator.Tests\Passes">
+      <UniqueIdentifier>{226EAC1C-0E7E-58ED-7737-BD0B63664786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Parser">
+      <UniqueIdentifier>{0953F626-F50A-3874-5E12-11D04AE9D264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Runtime">
+      <UniqueIdentifier>{609514CE-CC4A-8DC3-553F-879AC1F383C7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\clang">
+      <UniqueIdentifier>{816CF8B4-EDD6-AC2B-3615-5ED1A2BE8A80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\clang\openmp_wrappers">
+      <UniqueIdentifier>{32D1BDAA-9E93-F134-E743-80C15345CA12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\clang\ppc_wrappers">
+      <UniqueIdentifier>{0632DB1F-F22B-0472-DB98-9A82C7316ADE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\CppSharp.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\FastDelegates.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\APValuePrinter.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\AST.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Bindings\CLI\AST.h">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Bindings\CLI\CppParser.h">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Bindings\CLI\Decl.h">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Bindings\CLI\Expr.h">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Bindings\CLI\Sources.h">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Bindings\CLI\Stmt.h">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Bindings\CLI\Target.h">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Bindings\CLI\Types.h">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\CXXABI.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\CppParser.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Decl.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\ELFDumper.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Expr.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Helpers.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Parser.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Sources.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Stmt.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Target.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CppParser\Types.h">
+      <Filter>src\CppParser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Generator\Generators\QuickJS\Runtime\CppSharp_QuickJS.h">
+      <Filter>src\Generator\Generators\QuickJS\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Generator\Generators\QuickJS\Runtime\Signal.h">
+      <Filter>src\Generator\Generators\QuickJS\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_cuda_builtin_vars.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_cuda_cmath.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_cuda_complex_builtins.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_cuda_device_functions.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_cuda_intrinsics.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_cuda_libdevice_declares.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_cuda_math.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_cuda_math_forward_declares.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_cuda_runtime_wrapper.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_hip_cmath.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_hip_libdevice_declares.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_hip_math.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__clang_hip_runtime_wrapper.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__stddef_max_align_t.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__wmmintrin_aes.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\__wmmintrin_pclmul.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\adxintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\altivec.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ammintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\amxintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\arm64intr.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\arm_acle.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\arm_bf16.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\arm_cde.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\arm_cmse.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\arm_fp16.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\arm_mve.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\arm_neon.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\arm_sve.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\armintr.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx2intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512bf16intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512bitalgintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512bwintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512cdintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512dqintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512erintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512fintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512fp16intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512ifmaintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512ifmavlintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512pfintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vbmi2intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vbmiintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vbmivlintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vlbf16intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vlbitalgintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vlbwintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vlcdintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vldqintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vlfp16intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vlintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vlvbmi2intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vlvnniintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vlvp2intersectintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vnniintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vp2intersectintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vpopcntdqintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avx512vpopcntdqvlintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avxintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\avxvnniintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\bmi2intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\bmiintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\builtins.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\cet.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\cetintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\cldemoteintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\clflushoptintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\clwbintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\clzerointrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\cpuid.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\emmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\enqcmdintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\f16cintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\float.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\fma4intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\fmaintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\fxsrintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\gfniintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\hexagon_circ_brev_intrinsics.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\hexagon_protos.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\hexagon_types.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\hresetintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\htmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\htmxlintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\hvx_hexagon_protos.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ia32intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\immintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\inttypes.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\invpcidintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\iso646.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\keylockerintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\limits.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\lwpintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\lzcntintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\mm3dnow.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\mm_malloc.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\mmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\movdirintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\msa.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\mwaitxintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\nmmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\opencl-c-base.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\opencl-c.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\openmp_wrappers\__clang_openmp_device_functions.h">
+      <Filter>src\clang\openmp_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\openmp_wrappers\complex.h">
+      <Filter>src\clang\openmp_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\openmp_wrappers\complex_cmath.h">
+      <Filter>src\clang\openmp_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\openmp_wrappers\math.h">
+      <Filter>src\clang\openmp_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\pconfigintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\pkuintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\pmmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\popcntintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ppc_wrappers\emmintrin.h">
+      <Filter>src\clang\ppc_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ppc_wrappers\mm_malloc.h">
+      <Filter>src\clang\ppc_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ppc_wrappers\mmintrin.h">
+      <Filter>src\clang\ppc_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ppc_wrappers\pmmintrin.h">
+      <Filter>src\clang\ppc_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ppc_wrappers\smmintrin.h">
+      <Filter>src\clang\ppc_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ppc_wrappers\tmmintrin.h">
+      <Filter>src\clang\ppc_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ppc_wrappers\xmmintrin.h">
+      <Filter>src\clang\ppc_wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\prfchwintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\ptwriteintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\rdseedintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\riscv_vector.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\rtmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\s390intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\serializeintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\sgxintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\shaintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\smmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\stdalign.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\stdarg.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\stdatomic.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\stdbool.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\stddef.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\stdint.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\stdnoreturn.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\tbmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\tgmath.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\tmmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\tsxldtrkintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\uintrintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\unwind.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\vadefs.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\vaesintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\varargs.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\vecintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\vpclmulqdqintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\waitpkgintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\wasm_simd128.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\wbnoinvdintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\wmmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\x86gprintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\x86intrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\xmmintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\xopintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\xsavecintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\xsaveintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\xsaveoptintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\xsavesintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clang\xtestintrin.h">
+      <Filter>src\clang</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\CppParser\AST.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CLI\AST.cpp">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CLI\CppParser.cpp">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CLI\Decl.cpp">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CLI\Expr.cpp">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CLI\Sources.cpp">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CLI\Stmt.cpp">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CLI\Target.cpp">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CLI\Types.cpp">
+      <Filter>src\CppParser\Bindings\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\CppSharp.CppParser-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\CppSharp.CppParser.dll-templates.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\Std-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\CppSharp.CppParser-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\i686-pc-win32-msvc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\CppSharp.CppParser.dll-templates.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\i686-pc-win32-msvc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\Std-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\i686-pc-win32-msvc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\CppSharp.CppParser-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\CppSharp.CppParser.dll-templates.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\Std-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi\CppSharp.CppParser-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi\Std-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\CppSharp.CppParser-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-linux-gnu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\CppSharp.CppParser.dll-templates.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-linux-gnu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\Std-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-linux-gnu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\CppSharp.CppParser-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\CppSharp.CppParser.dll-templates.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\Std-symbols.cpp">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Comments.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\CppParser.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Expr.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Link.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\ParseExpr.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\ParseStmt.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Parser.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Sources.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Stmt.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Target.cpp">
+      <Filter>src\CppParser</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Generator\Generators\QuickJS\Runtime\CppSharp_QuickJS.cpp">
+      <Filter>src\Generator\Generators\QuickJS\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Generator\Generators\QuickJS\Runtime\Signal.cpp">
+      <Filter>src\Generator\Generators\QuickJS\Runtime</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\AST\ASTContext.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\ASTVisitor.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Assembly.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Attribute.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Class.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\ClassExtensions.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\ClassLayout.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Comment.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Conversions.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Declaration.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\DeclarationsList.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Delegate.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Enumeration.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Event.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Expr.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Expression.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Field.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Friend.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Function.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\FunctionExtensions.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\IExpressionPrinter.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\LayoutBase.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\LayoutField.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Method.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Module.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Namespace.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Preprocessor.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Property.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\PropertyExtensions.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Reference.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\SourceLocation.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Statement.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Stmt.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\StmtVisitor.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\SymbolContext.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\TargetTriple.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Template.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\TranslationUnit.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Type.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\TypeExtensions.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Typedef.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\AST\Variable.cs">
+      <Filter>src\AST</Filter>
+    </None>
+    <None Include="src\CLI\CLI.cs">
+      <Filter>src\CLI</Filter>
+    </None>
+    <None Include="src\CLI\Generator.cs">
+      <Filter>src\CLI</Filter>
+    </None>
+    <None Include="src\CLI\Options.cs">
+      <Filter>src\CLI</Filter>
+    </None>
+    <None Include="src\Core\Compilation.cs">
+      <Filter>src\Core</Filter>
+    </None>
+    <None Include="src\Core\Diagnostics.cs">
+      <Filter>src\Core</Filter>
+    </None>
+    <None Include="src\Core\Platform.cs">
+      <Filter>src\Core</Filter>
+    </None>
+    <None Include="src\Core\Toolchains\MSVCToolchain.cs">
+      <Filter>src\Core\Toolchains</Filter>
+    </None>
+    <None Include="src\Core\Toolchains\ManagedToolchain.cs">
+      <Filter>src\Core\Toolchains</Filter>
+    </None>
+    <None Include="src\Core\Toolchains\XcodeToolchain.cs">
+      <Filter>src\Core\Toolchains</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\CppSharp.CppParser.cs">
+      <Filter>src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\Std.cs">
+      <Filter>src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\CppSharp.CppParser.cs">
+      <Filter>src\CppParser\Bindings\CSharp\i686-pc-win32-msvc</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\Std.cs">
+      <Filter>src\CppParser\Bindings\CSharp\i686-pc-win32-msvc</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\CppSharp.CppParser.cs">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\Std.cs">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi\CppSharp.CppParser.cs">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi\Std.cs">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\CppSharp.CppParser.cs">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-linux-gnu</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\Std.cs">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-linux-gnu</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\CppSharp.CppParser.cs">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc</Filter>
+    </None>
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\Std.cs">
+      <Filter>src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc</Filter>
+    </None>
+    <None Include="src\CppParser\Bootstrap\Bootstrap.cs">
+      <Filter>src\CppParser\Bootstrap</Filter>
+    </None>
+    <None Include="src\CppParser\Bootstrap\IgnoreMethodsWithParametersPass.cs">
+      <Filter>src\CppParser\Bootstrap</Filter>
+    </None>
+    <None Include="src\CppParser\ParserGen\ParserGen.cs">
+      <Filter>src\CppParser\ParserGen</Filter>
+    </None>
+    <None Include="src\Generator.Tests\AST\TestAST.cs">
+      <Filter>src\Generator.Tests\AST</Filter>
+    </None>
+    <None Include="src\Generator.Tests\ASTTestFixture.cs">
+      <Filter>src\Generator.Tests</Filter>
+    </None>
+    <None Include="src\Generator.Tests\GeneratorTest.cs">
+      <Filter>src\Generator.Tests</Filter>
+    </None>
+    <None Include="src\Generator.Tests\Passes\TestPasses.cs">
+      <Filter>src\Generator.Tests\Passes</Filter>
+    </None>
+    <None Include="src\Generator.Tests\QueryHelpers.cs">
+      <Filter>src\Generator.Tests</Filter>
+    </None>
+    <None Include="src\Generator.Tests\ReadNativeDependenciesTest.cs">
+      <Filter>src\Generator.Tests</Filter>
+    </None>
+    <None Include="src\Generator.Tests\ReadNativeSymbolsTest.cs">
+      <Filter>src\Generator.Tests</Filter>
+    </None>
+    <None Include="src\Generator\AST\ASTRecord.cs">
+      <Filter>src\Generator\AST</Filter>
+    </None>
+    <None Include="src\Generator\AST\Utils.cs">
+      <Filter>src\Generator\AST</Filter>
+    </None>
+    <None Include="src\Generator\AST\VTables.cs">
+      <Filter>src\Generator\AST</Filter>
+    </None>
+    <None Include="src\Generator\BindingContext.cs">
+      <Filter>src\Generator</Filter>
+    </None>
+    <None Include="src\Generator\ClassOptions.cs">
+      <Filter>src\Generator</Filter>
+    </None>
+    <None Include="src\Generator\Driver.cs">
+      <Filter>src\Generator</Filter>
+    </None>
+    <None Include="src\Generator\Extensions\FunctionExtensions.cs">
+      <Filter>src\Generator\Extensions</Filter>
+    </None>
+    <None Include="src\Generator\Extensions\LayoutFieldExtensions.cs">
+      <Filter>src\Generator\Extensions</Filter>
+    </None>
+    <None Include="src\Generator\Extensions\ParserIntTypeExtensions.cs">
+      <Filter>src\Generator\Extensions</Filter>
+    </None>
+    <None Include="src\Generator\Extensions\PrimitiveTypeExtensions.cs">
+      <Filter>src\Generator\Extensions</Filter>
+    </None>
+    <None Include="src\Generator\Extensions\TypeExtensions.cs">
+      <Filter>src\Generator\Extensions</Filter>
+    </None>
+    <None Include="src\Generator\Generator.cs">
+      <Filter>src\Generator</Filter>
+    </None>
+    <None Include="src\Generator\Generators\C\CCodeGenerator.cs">
+      <Filter>src\Generator\Generators\C</Filter>
+    </None>
+    <None Include="src\Generator\Generators\C\CGenerator.cs">
+      <Filter>src\Generator\Generators\C</Filter>
+    </None>
+    <None Include="src\Generator\Generators\C\CppDefaultValuePrinter.cs">
+      <Filter>src\Generator\Generators\C</Filter>
+    </None>
+    <None Include="src\Generator\Generators\C\CppGenerator.cs">
+      <Filter>src\Generator\Generators\C</Filter>
+    </None>
+    <None Include="src\Generator\Generators\C\CppHeaders.cs">
+      <Filter>src\Generator\Generators\C</Filter>
+    </None>
+    <None Include="src\Generator\Generators\C\CppMarshal.cs">
+      <Filter>src\Generator\Generators\C</Filter>
+    </None>
+    <None Include="src\Generator\Generators\C\CppSources.cs">
+      <Filter>src\Generator\Generators\C</Filter>
+    </None>
+    <None Include="src\Generator\Generators\C\CppTypePrinter.cs">
+      <Filter>src\Generator\Generators\C</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CLI\CLIGenerator.cs">
+      <Filter>src\Generator\Generators\CLI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CLI\CLIHeaders.cs">
+      <Filter>src\Generator\Generators\CLI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CLI\CLIMarshal.cs">
+      <Filter>src\Generator\Generators\CLI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CLI\CLISources.cs">
+      <Filter>src\Generator\Generators\CLI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CLI\CLITemplate.cs">
+      <Filter>src\Generator\Generators\CLI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CLI\CLITypePrinter.cs">
+      <Filter>src\Generator\Generators\CLI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CLI\CLITypeReferences.cs">
+      <Filter>src\Generator\Generators\CLI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CSharp\CSharpCommentPrinter.cs">
+      <Filter>src\Generator\Generators\CSharp</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CSharp\CSharpExpressionPrinter.cs">
+      <Filter>src\Generator\Generators\CSharp</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CSharp\CSharpGenerator.cs">
+      <Filter>src\Generator\Generators\CSharp</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CSharp\CSharpLibrarySymbolTable.cs">
+      <Filter>src\Generator\Generators\CSharp</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CSharp\CSharpMarshal.cs">
+      <Filter>src\Generator\Generators\CSharp</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CSharp\CSharpSources.cs">
+      <Filter>src\Generator\Generators\CSharp</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CSharp\CSharpSourcesExtensions.cs">
+      <Filter>src\Generator\Generators\CSharp</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CSharp\CSharpTypePrinter.cs">
+      <Filter>src\Generator\Generators\CSharp</Filter>
+    </None>
+    <None Include="src\Generator\Generators\CodeGenerator.cs">
+      <Filter>src\Generator\Generators</Filter>
+    </None>
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenGenerator.cs">
+      <Filter>src\Generator\Generators\Emscripten</Filter>
+    </None>
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenHeaders.cs">
+      <Filter>src\Generator\Generators\Emscripten</Filter>
+    </None>
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenMarshal.cs">
+      <Filter>src\Generator\Generators\Emscripten</Filter>
+    </None>
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenModule.cs">
+      <Filter>src\Generator\Generators\Emscripten</Filter>
+    </None>
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenSources.cs">
+      <Filter>src\Generator\Generators\Emscripten</Filter>
+    </None>
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenTypePrinter.cs">
+      <Filter>src\Generator\Generators\Emscripten</Filter>
+    </None>
+    <None Include="src\Generator\Generators\ExtensionMethods.cs">
+      <Filter>src\Generator\Generators</Filter>
+    </None>
+    <None Include="src\Generator\Generators\ITypePrinter.cs">
+      <Filter>src\Generator\Generators</Filter>
+    </None>
+    <None Include="src\Generator\Generators\MSBuildGenerator.cs">
+      <Filter>src\Generator\Generators</Filter>
+    </None>
+    <None Include="src\Generator\Generators\Marshal.cs">
+      <Filter>src\Generator\Generators</Filter>
+    </None>
+    <None Include="src\Generator\Generators\NAPI\NAPIGenerator.cs">
+      <Filter>src\Generator\Generators\NAPI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\NAPI\NAPIHeaders.cs">
+      <Filter>src\Generator\Generators\NAPI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\NAPI\NAPIHelpers.cs">
+      <Filter>src\Generator\Generators\NAPI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\NAPI\NAPIMarshal.cs">
+      <Filter>src\Generator\Generators\NAPI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\NAPI\NAPIModule.cs">
+      <Filter>src\Generator\Generators\NAPI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\NAPI\NAPISources.cs">
+      <Filter>src\Generator\Generators\NAPI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\NAPI\NAPITypeCheckGen.cs">
+      <Filter>src\Generator\Generators\NAPI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\NAPI\NAPITypeCheckPass.cs">
+      <Filter>src\Generator\Generators\NAPI</Filter>
+    </None>
+    <None Include="src\Generator\Generators\QuickJS\QuickJSGenerator.cs">
+      <Filter>src\Generator\Generators\QuickJS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\QuickJS\QuickJSHeaders.cs">
+      <Filter>src\Generator\Generators\QuickJS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\QuickJS\QuickJSMarshal.cs">
+      <Filter>src\Generator\Generators\QuickJS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\QuickJS\QuickJSModule.cs">
+      <Filter>src\Generator\Generators\QuickJS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\QuickJS\QuickJSSources.cs">
+      <Filter>src\Generator\Generators\QuickJS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\QuickJS\QuickJSTypeCheckGen.cs">
+      <Filter>src\Generator\Generators\QuickJS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\QuickJS\QuickJSTypePrinter.cs">
+      <Filter>src\Generator\Generators\QuickJS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\TS\TSGenerator.cs">
+      <Filter>src\Generator\Generators\TS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\TS\TSSources.cs">
+      <Filter>src\Generator\Generators\TS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\TS\TSTypePrinter.cs">
+      <Filter>src\Generator\Generators\TS</Filter>
+    </None>
+    <None Include="src\Generator\Generators\TypePrinter.cs">
+      <Filter>src\Generator\Generators</Filter>
+    </None>
+    <None Include="src\Generator\Library.cs">
+      <Filter>src\Generator</Filter>
+    </None>
+    <None Include="src\Generator\Options.cs">
+      <Filter>src\Generator</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckAbiParameters.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckAmbiguousFunctions.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckDuplicatedNamesPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckFlagEnumsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckIgnoredDecls.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckKeywordNamesPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckMacrosPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckOperatorsOverloads.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckStaticClass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CheckVirtualOverrideReturnCovariance.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CleanCommentsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CleanInvalidDeclNamesPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\CleanUnitPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\ConstructorToConversionOperatorPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\DelegatesPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\EqualiseAccessOfOverrideAndBasePass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\ExpressionHelper.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\ExtractInterfacePass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\FastDelegateToDelegatesPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\FieldToPropertyPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\FindSymbolsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\FixDefaultParamValuesOfOverridesPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\FixParameterUsageFromComments.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\FlattenAnonymousTypesToFields.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\FunctionToInstanceMethodPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\FunctionToStaticMethodPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\GenerateAbstractImplementationsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\GenerateSymbolsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\GetterSetterToPropertyPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\HandleDefaultParamValuesPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\HandleVariableInitializerPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\IgnoreSystemDeclarationsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\MakeProtectedNestedTypesPublicPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\MarkEventsWithUniqueIdPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\MarkUsedClassInternalsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\MarshalPrimitivePointersAsRefTypePass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\MatchParamNamesWithInstantiatedFromPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\MoveFunctionToClassPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\MultipleInheritancePass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\ParamTypeToInterfacePass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\Pass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\PassBuilder.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\RenamePass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\ResolveIncompleteDeclsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\SpecializationMethodsWithDependentPointersPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\StripUnusedSystemTypesPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\SymbolsCodeGenerator.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\TrimSpecializationsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Passes\ValidateOperatorsPass.cs">
+      <Filter>src\Generator\Passes</Filter>
+    </None>
+    <None Include="src\Generator\Types\DeclMap.cs">
+      <Filter>src\Generator\Types</Filter>
+    </None>
+    <None Include="src\Generator\Types\DeclMapDatabase.cs">
+      <Filter>src\Generator\Types</Filter>
+    </None>
+    <None Include="src\Generator\Types\Std\Stdlib.CLI.cs">
+      <Filter>src\Generator\Types\Std</Filter>
+    </None>
+    <None Include="src\Generator\Types\Std\Stdlib.CSharp.cs">
+      <Filter>src\Generator\Types\Std</Filter>
+    </None>
+    <None Include="src\Generator\Types\Std\Stdlib.cs">
+      <Filter>src\Generator\Types\Std</Filter>
+    </None>
+    <None Include="src\Generator\Types\TypeIgnoreChecker.cs">
+      <Filter>src\Generator\Types</Filter>
+    </None>
+    <None Include="src\Generator\Types\TypeMap.cs">
+      <Filter>src\Generator\Types</Filter>
+    </None>
+    <None Include="src\Generator\Types\TypeMapDatabase.cs">
+      <Filter>src\Generator\Types</Filter>
+    </None>
+    <None Include="src\Generator\Utils\BlockGenerator.cs">
+      <Filter>src\Generator\Utils</Filter>
+    </None>
+    <None Include="src\Generator\Utils\ExpressionEvaluator.cs">
+      <Filter>src\Generator\Utils</Filter>
+    </None>
+    <None Include="src\Generator\Utils\FSM\ConsoleWriter.cs">
+      <Filter>src\Generator\Utils\FSM</Filter>
+    </None>
+    <None Include="src\Generator\Utils\FSM\DFSM.cs">
+      <Filter>src\Generator\Utils\FSM</Filter>
+    </None>
+    <None Include="src\Generator\Utils\FSM\Minimize.cs">
+      <Filter>src\Generator\Utils\FSM</Filter>
+    </None>
+    <None Include="src\Generator\Utils\FSM\NDFSM.cs">
+      <Filter>src\Generator\Utils\FSM</Filter>
+    </None>
+    <None Include="src\Generator\Utils\FSM\Program.cs">
+      <Filter>src\Generator\Utils\FSM</Filter>
+    </None>
+    <None Include="src\Generator\Utils\FSM\Transition.cs">
+      <Filter>src\Generator\Utils\FSM</Filter>
+    </None>
+    <None Include="src\Generator\Utils\HtmlEncoder.cs">
+      <Filter>src\Generator\Utils</Filter>
+    </None>
+    <None Include="src\Generator\Utils\IEnumerableExtensions.cs">
+      <Filter>src\Generator\Utils</Filter>
+    </None>
+    <None Include="src\Generator\Utils\Options.cs">
+      <Filter>src\Generator\Utils</Filter>
+    </None>
+    <None Include="src\Generator\Utils\OrderedSet.cs">
+      <Filter>src\Generator\Utils</Filter>
+    </None>
+    <None Include="src\Generator\Utils\ProcessHelper.cs">
+      <Filter>src\Generator\Utils</Filter>
+    </None>
+    <None Include="src\Generator\Utils\TextGenerator.cs">
+      <Filter>src\Generator\Utils</Filter>
+    </None>
+    <None Include="src\Generator\Utils\Utils.cs">
+      <Filter>src\Generator\Utils</Filter>
+    </None>
+    <None Include="src\Parser\ASTConverter.Expr.cs">
+      <Filter>src\Parser</Filter>
+    </None>
+    <None Include="src\Parser\ASTConverter.Stmt.cs">
+      <Filter>src\Parser</Filter>
+    </None>
+    <None Include="src\Parser\ASTConverter.cs">
+      <Filter>src\Parser</Filter>
+    </None>
+    <None Include="src\Parser\BuildConfig.cs">
+      <Filter>src\Parser</Filter>
+    </None>
+    <None Include="src\Parser\LinkerOptions.cs">
+      <Filter>src\Parser</Filter>
+    </None>
+    <None Include="src\Parser\Parser.cs">
+      <Filter>src\Parser</Filter>
+    </None>
+    <None Include="src\Parser\ParserOptions.cs">
+      <Filter>src\Parser</Filter>
+    </None>
+    <None Include="src\Runtime\MarshalUtil.cs">
+      <Filter>src\Runtime</Filter>
+    </None>
+    <None Include="src\Runtime\Pointer.cs">
+      <Filter>src\Runtime</Filter>
+    </None>
+    <None Include="src\Runtime\SafeUnmanagedMemoryHandle.cs">
+      <Filter>src\Runtime</Filter>
+    </None>
+    <None Include="src\Runtime\SymbolResolver.cs">
+      <Filter>src\Runtime</Filter>
+    </None>
+    <None Include="src\Runtime\UTF32Marshaller.cs">
+      <Filter>src\Runtime</Filter>
+    </None>
+    <None Include="src\Runtime\UTF8Marshaller.cs">
+      <Filter>src\Runtime</Filter>
+    </None>
+    <None Include="src\Runtime\VTables.cs">
+      <Filter>src\Runtime</Filter>
+    </None>
+  </ItemGroup>
+</Project>

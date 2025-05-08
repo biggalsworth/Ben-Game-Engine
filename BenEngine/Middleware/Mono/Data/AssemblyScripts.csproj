@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+<PropertyGroup>
+	<AssemblyName>AssemblyScripts</AssemblyName>
+	<OutputPath>bin\Debug</OutputPath>
+	<TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	
+	<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks> <!-- Enable unsafe code -->
+	<DefineConstants>MONO_RUNTIME</DefineConstants>
+
+	<MonoLibsDir>..\lib</MonoLibsDir>
+	<MonoIncludesDir>..\include; ..\etc</MonoIncludesDir>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+</PropertyGroup>
+	<ItemGroup>
+	<Compile Include="..\..\..\assets\**\*.cs" />
+	<Compile Include="..\..\..\src\*.cs" />
+	<Compile Include="CustomGenerated\**\*.cs" />
+	<!--<Compile Include="..\..\CppSharp\CppSharpBindings\**\*.cs" /> -->
+</ItemGroup>
+
+</Project>

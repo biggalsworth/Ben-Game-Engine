@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PlatformTarget>x64</PlatformTarget>
+		<LangVersion>latest</LangVersion>
+		<PreferredToolArchitecture>x64</PreferredToolArchitecture>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CppSharp" Version="1.1.5.3168">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.13.9" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="CppSharp">
+			<HintPath>..\lib\CppSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="CppSharp.AST">
+			<HintPath>..\lib\CppSharp.AST.dll</HintPath>
+		</Reference>
+		<Reference Include="CppSharp.Generator">
+			<HintPath>..\lib\CppSharp.Generator.dll</HintPath>
+		</Reference>
+		<Reference Include="CppSharp.Parser">
+			<HintPath>..\lib\CppSharp.Parser.dll</HintPath>
+		</Reference>
+		<Reference Include="CppSharp.Parser.CSharp">
+			<HintPath>..\lib\CppSharp.Parser.CSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="CppSharp.Runtime">
+			<HintPath>..\lib\CppSharp.Runtime.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+</Project>

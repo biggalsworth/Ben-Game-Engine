@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Dist|x64">
+      <Configuration>Dist</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C600C309-B2CD-1D15-DBE6-0BBDC71253A3}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CppSharp</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\Debug-windows-x86_64\CppSharp\</OutDir>
+    <IntDir>bin-int\Debug-windows-x86_64\CppSharp\</IntDir>
+    <TargetName>CppSharp</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\Release-windows-x86_64\CppSharp\</OutDir>
+    <IntDir>bin-int\Release-windows-x86_64\CppSharp\</IntDir>
+    <TargetName>CppSharp</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
+    <OutDir>bin\Dist-windows-x86_64\CppSharp\</OutDir>
+    <IntDir>bin-int\Dist-windows-x86_64\CppSharp\</IntDir>
+    <TargetName>CppSharp</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>BenEngine\Middleware\CppSharp\Include;Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>bin\Debug-windows-x86_64\CppSharp\CppSharp.lib;mono-2.0-sgen.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>BenEngine\Middleware\CppSharp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>dotnet build --project $(ProjectDir)/CppSharp.csproj
+dotnet run --project $(ProjectDir)/CppSharp.csproj</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>BenEngine\Middleware\CppSharp\Include;Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>bin\Release-windows-x86_64\CppSharp\CppSharp.lib;mono-2.0-sgen.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>BenEngine\Middleware\CppSharp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>dotnet build --project $(ProjectDir)/CppSharp.csproj
+dotnet run --project $(ProjectDir)/CppSharp.csproj</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>BenEngine\Middleware\CppSharp\Include;Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>bin\Dist-windows-x86_64\CppSharp\CppSharp.lib;mono-2.0-sgen.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>BenEngine\Middleware\CppSharp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>dotnet build --project $(ProjectDir)/CppSharp.csproj
+dotnet run --project $(ProjectDir)/CppSharp.csproj</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\CppSharp.h" />
+    <ClInclude Include="Include\FastDelegates.h" />
+    <ClInclude Include="src\CppParser\APValuePrinter.h" />
+    <ClInclude Include="src\CppParser\AST.h" />
+    <ClInclude Include="src\CppParser\Bindings\CLI\AST.h" />
+    <ClInclude Include="src\CppParser\Bindings\CLI\CppParser.h" />
+    <ClInclude Include="src\CppParser\Bindings\CLI\Decl.h" />
+    <ClInclude Include="src\CppParser\Bindings\CLI\Expr.h" />
+    <ClInclude Include="src\CppParser\Bindings\CLI\Sources.h" />
+    <ClInclude Include="src\CppParser\Bindings\CLI\Stmt.h" />
+    <ClInclude Include="src\CppParser\Bindings\CLI\Target.h" />
+    <ClInclude Include="src\CppParser\Bindings\CLI\Types.h" />
+    <ClInclude Include="src\CppParser\CXXABI.h" />
+    <ClInclude Include="src\CppParser\CppParser.h" />
+    <ClInclude Include="src\CppParser\Decl.h" />
+    <ClInclude Include="src\CppParser\ELFDumper.h" />
+    <ClInclude Include="src\CppParser\Expr.h" />
+    <ClInclude Include="src\CppParser\Helpers.h" />
+    <ClInclude Include="src\CppParser\Parser.h" />
+    <ClInclude Include="src\CppParser\Sources.h" />
+    <ClInclude Include="src\CppParser\Stmt.h" />
+    <ClInclude Include="src\CppParser\Target.h" />
+    <ClInclude Include="src\CppParser\Types.h" />
+    <ClInclude Include="src\Generator\Generators\QuickJS\Runtime\CppSharp_QuickJS.h" />
+    <ClInclude Include="src\Generator\Generators\QuickJS\Runtime\Signal.h" />
+    <ClInclude Include="src\clang\__clang_cuda_builtin_vars.h" />
+    <ClInclude Include="src\clang\__clang_cuda_cmath.h" />
+    <ClInclude Include="src\clang\__clang_cuda_complex_builtins.h" />
+    <ClInclude Include="src\clang\__clang_cuda_device_functions.h" />
+    <ClInclude Include="src\clang\__clang_cuda_intrinsics.h" />
+    <ClInclude Include="src\clang\__clang_cuda_libdevice_declares.h" />
+    <ClInclude Include="src\clang\__clang_cuda_math.h" />
+    <ClInclude Include="src\clang\__clang_cuda_math_forward_declares.h" />
+    <ClInclude Include="src\clang\__clang_cuda_runtime_wrapper.h" />
+    <ClInclude Include="src\clang\__clang_hip_cmath.h" />
+    <ClInclude Include="src\clang\__clang_hip_libdevice_declares.h" />
+    <ClInclude Include="src\clang\__clang_hip_math.h" />
+    <ClInclude Include="src\clang\__clang_hip_runtime_wrapper.h" />
+    <ClInclude Include="src\clang\__stddef_max_align_t.h" />
+    <ClInclude Include="src\clang\__wmmintrin_aes.h" />
+    <ClInclude Include="src\clang\__wmmintrin_pclmul.h" />
+    <ClInclude Include="src\clang\adxintrin.h" />
+    <ClInclude Include="src\clang\altivec.h" />
+    <ClInclude Include="src\clang\ammintrin.h" />
+    <ClInclude Include="src\clang\amxintrin.h" />
+    <ClInclude Include="src\clang\arm64intr.h" />
+    <ClInclude Include="src\clang\arm_acle.h" />
+    <ClInclude Include="src\clang\arm_bf16.h" />
+    <ClInclude Include="src\clang\arm_cde.h" />
+    <ClInclude Include="src\clang\arm_cmse.h" />
+    <ClInclude Include="src\clang\arm_fp16.h" />
+    <ClInclude Include="src\clang\arm_mve.h" />
+    <ClInclude Include="src\clang\arm_neon.h" />
+    <ClInclude Include="src\clang\arm_sve.h" />
+    <ClInclude Include="src\clang\armintr.h" />
+    <ClInclude Include="src\clang\avx2intrin.h" />
+    <ClInclude Include="src\clang\avx512bf16intrin.h" />
+    <ClInclude Include="src\clang\avx512bitalgintrin.h" />
+    <ClInclude Include="src\clang\avx512bwintrin.h" />
+    <ClInclude Include="src\clang\avx512cdintrin.h" />
+    <ClInclude Include="src\clang\avx512dqintrin.h" />
+    <ClInclude Include="src\clang\avx512erintrin.h" />
+    <ClInclude Include="src\clang\avx512fintrin.h" />
+    <ClInclude Include="src\clang\avx512fp16intrin.h" />
+    <ClInclude Include="src\clang\avx512ifmaintrin.h" />
+    <ClInclude Include="src\clang\avx512ifmavlintrin.h" />
+    <ClInclude Include="src\clang\avx512pfintrin.h" />
+    <ClInclude Include="src\clang\avx512vbmi2intrin.h" />
+    <ClInclude Include="src\clang\avx512vbmiintrin.h" />
+    <ClInclude Include="src\clang\avx512vbmivlintrin.h" />
+    <ClInclude Include="src\clang\avx512vlbf16intrin.h" />
+    <ClInclude Include="src\clang\avx512vlbitalgintrin.h" />
+    <ClInclude Include="src\clang\avx512vlbwintrin.h" />
+    <ClInclude Include="src\clang\avx512vlcdintrin.h" />
+    <ClInclude Include="src\clang\avx512vldqintrin.h" />
+    <ClInclude Include="src\clang\avx512vlfp16intrin.h" />
+    <ClInclude Include="src\clang\avx512vlintrin.h" />
+    <ClInclude Include="src\clang\avx512vlvbmi2intrin.h" />
+    <ClInclude Include="src\clang\avx512vlvnniintrin.h" />
+    <ClInclude Include="src\clang\avx512vlvp2intersectintrin.h" />
+    <ClInclude Include="src\clang\avx512vnniintrin.h" />
+    <ClInclude Include="src\clang\avx512vp2intersectintrin.h" />
+    <ClInclude Include="src\clang\avx512vpopcntdqintrin.h" />
+    <ClInclude Include="src\clang\avx512vpopcntdqvlintrin.h" />
+    <ClInclude Include="src\clang\avxintrin.h" />
+    <ClInclude Include="src\clang\avxvnniintrin.h" />
+    <ClInclude Include="src\clang\bmi2intrin.h" />
+    <ClInclude Include="src\clang\bmiintrin.h" />
+    <ClInclude Include="src\clang\builtins.h" />
+    <ClInclude Include="src\clang\cet.h" />
+    <ClInclude Include="src\clang\cetintrin.h" />
+    <ClInclude Include="src\clang\cldemoteintrin.h" />
+    <ClInclude Include="src\clang\clflushoptintrin.h" />
+    <ClInclude Include="src\clang\clwbintrin.h" />
+    <ClInclude Include="src\clang\clzerointrin.h" />
+    <ClInclude Include="src\clang\cpuid.h" />
+    <ClInclude Include="src\clang\emmintrin.h" />
+    <ClInclude Include="src\clang\enqcmdintrin.h" />
+    <ClInclude Include="src\clang\f16cintrin.h" />
+    <ClInclude Include="src\clang\float.h" />
+    <ClInclude Include="src\clang\fma4intrin.h" />
+    <ClInclude Include="src\clang\fmaintrin.h" />
+    <ClInclude Include="src\clang\fxsrintrin.h" />
+    <ClInclude Include="src\clang\gfniintrin.h" />
+    <ClInclude Include="src\clang\hexagon_circ_brev_intrinsics.h" />
+    <ClInclude Include="src\clang\hexagon_protos.h" />
+    <ClInclude Include="src\clang\hexagon_types.h" />
+    <ClInclude Include="src\clang\hresetintrin.h" />
+    <ClInclude Include="src\clang\htmintrin.h" />
+    <ClInclude Include="src\clang\htmxlintrin.h" />
+    <ClInclude Include="src\clang\hvx_hexagon_protos.h" />
+    <ClInclude Include="src\clang\ia32intrin.h" />
+    <ClInclude Include="src\clang\immintrin.h" />
+    <ClInclude Include="src\clang\intrin.h" />
+    <ClInclude Include="src\clang\inttypes.h" />
+    <ClInclude Include="src\clang\invpcidintrin.h" />
+    <ClInclude Include="src\clang\iso646.h" />
+    <ClInclude Include="src\clang\keylockerintrin.h" />
+    <ClInclude Include="src\clang\limits.h" />
+    <ClInclude Include="src\clang\lwpintrin.h" />
+    <ClInclude Include="src\clang\lzcntintrin.h" />
+    <ClInclude Include="src\clang\mm3dnow.h" />
+    <ClInclude Include="src\clang\mm_malloc.h" />
+    <ClInclude Include="src\clang\mmintrin.h" />
+    <ClInclude Include="src\clang\movdirintrin.h" />
+    <ClInclude Include="src\clang\msa.h" />
+    <ClInclude Include="src\clang\mwaitxintrin.h" />
+    <ClInclude Include="src\clang\nmmintrin.h" />
+    <ClInclude Include="src\clang\opencl-c-base.h" />
+    <ClInclude Include="src\clang\opencl-c.h" />
+    <ClInclude Include="src\clang\openmp_wrappers\__clang_openmp_device_functions.h" />
+    <ClInclude Include="src\clang\openmp_wrappers\complex.h" />
+    <ClInclude Include="src\clang\openmp_wrappers\complex_cmath.h" />
+    <ClInclude Include="src\clang\openmp_wrappers\math.h" />
+    <ClInclude Include="src\clang\pconfigintrin.h" />
+    <ClInclude Include="src\clang\pkuintrin.h" />
+    <ClInclude Include="src\clang\pmmintrin.h" />
+    <ClInclude Include="src\clang\popcntintrin.h" />
+    <ClInclude Include="src\clang\ppc_wrappers\emmintrin.h" />
+    <ClInclude Include="src\clang\ppc_wrappers\mm_malloc.h" />
+    <ClInclude Include="src\clang\ppc_wrappers\mmintrin.h" />
+    <ClInclude Include="src\clang\ppc_wrappers\pmmintrin.h" />
+    <ClInclude Include="src\clang\ppc_wrappers\smmintrin.h" />
+    <ClInclude Include="src\clang\ppc_wrappers\tmmintrin.h" />
+    <ClInclude Include="src\clang\ppc_wrappers\xmmintrin.h" />
+    <ClInclude Include="src\clang\prfchwintrin.h" />
+    <ClInclude Include="src\clang\ptwriteintrin.h" />
+    <ClInclude Include="src\clang\rdseedintrin.h" />
+    <ClInclude Include="src\clang\riscv_vector.h" />
+    <ClInclude Include="src\clang\rtmintrin.h" />
+    <ClInclude Include="src\clang\s390intrin.h" />
+    <ClInclude Include="src\clang\serializeintrin.h" />
+    <ClInclude Include="src\clang\sgxintrin.h" />
+    <ClInclude Include="src\clang\shaintrin.h" />
+    <ClInclude Include="src\clang\smmintrin.h" />
+    <ClInclude Include="src\clang\stdalign.h" />
+    <ClInclude Include="src\clang\stdarg.h" />
+    <ClInclude Include="src\clang\stdatomic.h" />
+    <ClInclude Include="src\clang\stdbool.h" />
+    <ClInclude Include="src\clang\stddef.h" />
+    <ClInclude Include="src\clang\stdint.h" />
+    <ClInclude Include="src\clang\stdnoreturn.h" />
+    <ClInclude Include="src\clang\tbmintrin.h" />
+    <ClInclude Include="src\clang\tgmath.h" />
+    <ClInclude Include="src\clang\tmmintrin.h" />
+    <ClInclude Include="src\clang\tsxldtrkintrin.h" />
+    <ClInclude Include="src\clang\uintrintrin.h" />
+    <ClInclude Include="src\clang\unwind.h" />
+    <ClInclude Include="src\clang\vadefs.h" />
+    <ClInclude Include="src\clang\vaesintrin.h" />
+    <ClInclude Include="src\clang\varargs.h" />
+    <ClInclude Include="src\clang\vecintrin.h" />
+    <ClInclude Include="src\clang\vpclmulqdqintrin.h" />
+    <ClInclude Include="src\clang\waitpkgintrin.h" />
+    <ClInclude Include="src\clang\wasm_simd128.h" />
+    <ClInclude Include="src\clang\wbnoinvdintrin.h" />
+    <ClInclude Include="src\clang\wmmintrin.h" />
+    <ClInclude Include="src\clang\x86gprintrin.h" />
+    <ClInclude Include="src\clang\x86intrin.h" />
+    <ClInclude Include="src\clang\xmmintrin.h" />
+    <ClInclude Include="src\clang\xopintrin.h" />
+    <ClInclude Include="src\clang\xsavecintrin.h" />
+    <ClInclude Include="src\clang\xsaveintrin.h" />
+    <ClInclude Include="src\clang\xsaveoptintrin.h" />
+    <ClInclude Include="src\clang\xsavesintrin.h" />
+    <ClInclude Include="src\clang\xtestintrin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\CppParser\AST.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CLI\AST.cpp">
+      <ObjectFileName>$(IntDir)\AST1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CLI\CppParser.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CLI\Decl.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CLI\Expr.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CLI\Sources.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CLI\Stmt.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CLI\Target.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CLI\Types.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\CppSharp.CppParser-symbols.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\CppSharp.CppParser.dll-templates.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\Std-symbols.cpp" />
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\CppSharp.CppParser-symbols.cpp">
+      <ObjectFileName>$(IntDir)\CppSharp.CppParser-symbols1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\CppSharp.CppParser.dll-templates.cpp">
+      <ObjectFileName>$(IntDir)\CppSharp.CppParser.dll-templates1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\Std-symbols.cpp">
+      <ObjectFileName>$(IntDir)\Std-symbols1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\CppSharp.CppParser-symbols.cpp">
+      <ObjectFileName>$(IntDir)\CppSharp.CppParser-symbols2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\CppSharp.CppParser.dll-templates.cpp">
+      <ObjectFileName>$(IntDir)\CppSharp.CppParser.dll-templates2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\Std-symbols.cpp">
+      <ObjectFileName>$(IntDir)\Std-symbols2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi\CppSharp.CppParser-symbols.cpp">
+      <ObjectFileName>$(IntDir)\CppSharp.CppParser-symbols3.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi\Std-symbols.cpp">
+      <ObjectFileName>$(IntDir)\Std-symbols3.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\CppSharp.CppParser-symbols.cpp">
+      <ObjectFileName>$(IntDir)\CppSharp.CppParser-symbols4.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\CppSharp.CppParser.dll-templates.cpp">
+      <ObjectFileName>$(IntDir)\CppSharp.CppParser.dll-templates3.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\Std-symbols.cpp">
+      <ObjectFileName>$(IntDir)\Std-symbols4.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\CppSharp.CppParser-symbols.cpp">
+      <ObjectFileName>$(IntDir)\CppSharp.CppParser-symbols5.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\CppSharp.CppParser.dll-templates.cpp">
+      <ObjectFileName>$(IntDir)\CppSharp.CppParser.dll-templates4.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\Std-symbols.cpp">
+      <ObjectFileName>$(IntDir)\Std-symbols5.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Comments.cpp" />
+    <ClCompile Include="src\CppParser\CppParser.cpp">
+      <ObjectFileName>$(IntDir)\CppParser1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Expr.cpp">
+      <ObjectFileName>$(IntDir)\Expr1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Link.cpp" />
+    <ClCompile Include="src\CppParser\ParseExpr.cpp" />
+    <ClCompile Include="src\CppParser\ParseStmt.cpp" />
+    <ClCompile Include="src\CppParser\Parser.cpp" />
+    <ClCompile Include="src\CppParser\Sources.cpp">
+      <ObjectFileName>$(IntDir)\Sources1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Stmt.cpp">
+      <ObjectFileName>$(IntDir)\Stmt1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CppParser\Target.cpp">
+      <ObjectFileName>$(IntDir)\Target1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\Generator\Generators\QuickJS\Runtime\CppSharp_QuickJS.cpp" />
+    <ClCompile Include="src\Generator\Generators\QuickJS\Runtime\Signal.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\AST\ASTContext.cs" />
+    <None Include="src\AST\ASTVisitor.cs" />
+    <None Include="src\AST\Assembly.cs" />
+    <None Include="src\AST\Attribute.cs" />
+    <None Include="src\AST\Class.cs" />
+    <None Include="src\AST\ClassExtensions.cs" />
+    <None Include="src\AST\ClassLayout.cs" />
+    <None Include="src\AST\Comment.cs" />
+    <None Include="src\AST\Conversions.cs" />
+    <None Include="src\AST\Declaration.cs" />
+    <None Include="src\AST\DeclarationsList.cs" />
+    <None Include="src\AST\Delegate.cs" />
+    <None Include="src\AST\Enumeration.cs" />
+    <None Include="src\AST\Event.cs" />
+    <None Include="src\AST\Expr.cs" />
+    <None Include="src\AST\Expression.cs" />
+    <None Include="src\AST\Field.cs" />
+    <None Include="src\AST\Friend.cs" />
+    <None Include="src\AST\Function.cs" />
+    <None Include="src\AST\FunctionExtensions.cs" />
+    <None Include="src\AST\IExpressionPrinter.cs" />
+    <None Include="src\AST\LayoutBase.cs" />
+    <None Include="src\AST\LayoutField.cs" />
+    <None Include="src\AST\Method.cs" />
+    <None Include="src\AST\Module.cs" />
+    <None Include="src\AST\Namespace.cs" />
+    <None Include="src\AST\Preprocessor.cs" />
+    <None Include="src\AST\Property.cs" />
+    <None Include="src\AST\PropertyExtensions.cs" />
+    <None Include="src\AST\Reference.cs" />
+    <None Include="src\AST\SourceLocation.cs" />
+    <None Include="src\AST\Statement.cs" />
+    <None Include="src\AST\Stmt.cs" />
+    <None Include="src\AST\StmtVisitor.cs" />
+    <None Include="src\AST\SymbolContext.cs" />
+    <None Include="src\AST\TargetTriple.cs" />
+    <None Include="src\AST\Template.cs" />
+    <None Include="src\AST\TranslationUnit.cs" />
+    <None Include="src\AST\Type.cs" />
+    <None Include="src\AST\TypeExtensions.cs" />
+    <None Include="src\AST\Typedef.cs" />
+    <None Include="src\AST\Variable.cs" />
+    <None Include="src\CLI\CLI.cs" />
+    <None Include="src\CLI\Generator.cs" />
+    <None Include="src\CLI\Options.cs" />
+    <None Include="src\Core\Compilation.cs" />
+    <None Include="src\Core\Diagnostics.cs" />
+    <None Include="src\Core\Platform.cs" />
+    <None Include="src\Core\Toolchains\MSVCToolchain.cs" />
+    <None Include="src\Core\Toolchains\ManagedToolchain.cs" />
+    <None Include="src\Core\Toolchains\XcodeToolchain.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\CppSharp.CppParser.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\i686-apple-darwin12.4.0\Std.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\CppSharp.CppParser.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\i686-pc-win32-msvc\Std.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\CppSharp.CppParser.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-apple-darwin12.4.0\Std.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi\CppSharp.CppParser.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu-cxx11abi\Std.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\CppSharp.CppParser.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-linux-gnu\Std.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\CppSharp.CppParser.cs" />
+    <None Include="src\CppParser\Bindings\CSharp\x86_64-pc-win32-msvc\Std.cs" />
+    <None Include="src\CppParser\Bootstrap\Bootstrap.cs" />
+    <None Include="src\CppParser\Bootstrap\IgnoreMethodsWithParametersPass.cs" />
+    <None Include="src\CppParser\ParserGen\ParserGen.cs" />
+    <None Include="src\Generator.Tests\AST\TestAST.cs" />
+    <None Include="src\Generator.Tests\ASTTestFixture.cs" />
+    <None Include="src\Generator.Tests\GeneratorTest.cs" />
+    <None Include="src\Generator.Tests\Passes\TestPasses.cs" />
+    <None Include="src\Generator.Tests\QueryHelpers.cs" />
+    <None Include="src\Generator.Tests\ReadNativeDependenciesTest.cs" />
+    <None Include="src\Generator.Tests\ReadNativeSymbolsTest.cs" />
+    <None Include="src\Generator\AST\ASTRecord.cs" />
+    <None Include="src\Generator\AST\Utils.cs" />
+    <None Include="src\Generator\AST\VTables.cs" />
+    <None Include="src\Generator\BindingContext.cs" />
+    <None Include="src\Generator\ClassOptions.cs" />
+    <None Include="src\Generator\Driver.cs" />
+    <None Include="src\Generator\Extensions\FunctionExtensions.cs" />
+    <None Include="src\Generator\Extensions\LayoutFieldExtensions.cs" />
+    <None Include="src\Generator\Extensions\ParserIntTypeExtensions.cs" />
+    <None Include="src\Generator\Extensions\PrimitiveTypeExtensions.cs" />
+    <None Include="src\Generator\Extensions\TypeExtensions.cs" />
+    <None Include="src\Generator\Generator.cs" />
+    <None Include="src\Generator\Generators\C\CCodeGenerator.cs" />
+    <None Include="src\Generator\Generators\C\CGenerator.cs" />
+    <None Include="src\Generator\Generators\C\CppDefaultValuePrinter.cs" />
+    <None Include="src\Generator\Generators\C\CppGenerator.cs" />
+    <None Include="src\Generator\Generators\C\CppHeaders.cs" />
+    <None Include="src\Generator\Generators\C\CppMarshal.cs" />
+    <None Include="src\Generator\Generators\C\CppSources.cs" />
+    <None Include="src\Generator\Generators\C\CppTypePrinter.cs" />
+    <None Include="src\Generator\Generators\CLI\CLIGenerator.cs" />
+    <None Include="src\Generator\Generators\CLI\CLIHeaders.cs" />
+    <None Include="src\Generator\Generators\CLI\CLIMarshal.cs" />
+    <None Include="src\Generator\Generators\CLI\CLISources.cs" />
+    <None Include="src\Generator\Generators\CLI\CLITemplate.cs" />
+    <None Include="src\Generator\Generators\CLI\CLITypePrinter.cs" />
+    <None Include="src\Generator\Generators\CLI\CLITypeReferences.cs" />
+    <None Include="src\Generator\Generators\CSharp\CSharpCommentPrinter.cs" />
+    <None Include="src\Generator\Generators\CSharp\CSharpExpressionPrinter.cs" />
+    <None Include="src\Generator\Generators\CSharp\CSharpGenerator.cs" />
+    <None Include="src\Generator\Generators\CSharp\CSharpLibrarySymbolTable.cs" />
+    <None Include="src\Generator\Generators\CSharp\CSharpMarshal.cs" />
+    <None Include="src\Generator\Generators\CSharp\CSharpSources.cs" />
+    <None Include="src\Generator\Generators\CSharp\CSharpSourcesExtensions.cs" />
+    <None Include="src\Generator\Generators\CSharp\CSharpTypePrinter.cs" />
+    <None Include="src\Generator\Generators\CodeGenerator.cs" />
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenGenerator.cs" />
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenHeaders.cs" />
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenMarshal.cs" />
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenModule.cs" />
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenSources.cs" />
+    <None Include="src\Generator\Generators\Emscripten\EmscriptenTypePrinter.cs" />
+    <None Include="src\Generator\Generators\ExtensionMethods.cs" />
+    <None Include="src\Generator\Generators\ITypePrinter.cs" />
+    <None Include="src\Generator\Generators\MSBuildGenerator.cs" />
+    <None Include="src\Generator\Generators\Marshal.cs" />
+    <None Include="src\Generator\Generators\NAPI\NAPIGenerator.cs" />
+    <None Include="src\Generator\Generators\NAPI\NAPIHeaders.cs" />
+    <None Include="src\Generator\Generators\NAPI\NAPIHelpers.cs" />
+    <None Include="src\Generator\Generators\NAPI\NAPIMarshal.cs" />
+    <None Include="src\Generator\Generators\NAPI\NAPIModule.cs" />
+    <None Include="src\Generator\Generators\NAPI\NAPISources.cs" />
+    <None Include="src\Generator\Generators\NAPI\NAPITypeCheckGen.cs" />
+    <None Include="src\Generator\Generators\NAPI\NAPITypeCheckPass.cs" />
+    <None Include="src\Generator\Generators\QuickJS\QuickJSGenerator.cs" />
+    <None Include="src\Generator\Generators\QuickJS\QuickJSHeaders.cs" />
+    <None Include="src\Generator\Generators\QuickJS\QuickJSMarshal.cs" />
+    <None Include="src\Generator\Generators\QuickJS\QuickJSModule.cs" />
+    <None Include="src\Generator\Generators\QuickJS\QuickJSSources.cs" />
+    <None Include="src\Generator\Generators\QuickJS\QuickJSTypeCheckGen.cs" />
+    <None Include="src\Generator\Generators\QuickJS\QuickJSTypePrinter.cs" />
+    <None Include="src\Generator\Generators\TS\TSGenerator.cs" />
+    <None Include="src\Generator\Generators\TS\TSSources.cs" />
+    <None Include="src\Generator\Generators\TS\TSTypePrinter.cs" />
+    <None Include="src\Generator\Generators\TypePrinter.cs" />
+    <None Include="src\Generator\Library.cs" />
+    <None Include="src\Generator\Options.cs" />
+    <None Include="src\Generator\Passes\CheckAbiParameters.cs" />
+    <None Include="src\Generator\Passes\CheckAmbiguousFunctions.cs" />
+    <None Include="src\Generator\Passes\CheckDuplicatedNamesPass.cs" />
+    <None Include="src\Generator\Passes\CheckFlagEnumsPass.cs" />
+    <None Include="src\Generator\Passes\CheckIgnoredDecls.cs" />
+    <None Include="src\Generator\Passes\CheckKeywordNamesPass.cs" />
+    <None Include="src\Generator\Passes\CheckMacrosPass.cs" />
+    <None Include="src\Generator\Passes\CheckOperatorsOverloads.cs" />
+    <None Include="src\Generator\Passes\CheckStaticClass.cs" />
+    <None Include="src\Generator\Passes\CheckVirtualOverrideReturnCovariance.cs" />
+    <None Include="src\Generator\Passes\CleanCommentsPass.cs" />
+    <None Include="src\Generator\Passes\CleanInvalidDeclNamesPass.cs" />
+    <None Include="src\Generator\Passes\CleanUnitPass.cs" />
+    <None Include="src\Generator\Passes\ConstructorToConversionOperatorPass.cs" />
+    <None Include="src\Generator\Passes\DelegatesPass.cs" />
+    <None Include="src\Generator\Passes\EqualiseAccessOfOverrideAndBasePass.cs" />
+    <None Include="src\Generator\Passes\ExpressionHelper.cs" />
+    <None Include="src\Generator\Passes\ExtractInterfacePass.cs" />
+    <None Include="src\Generator\Passes\FastDelegateToDelegatesPass.cs" />
+    <None Include="src\Generator\Passes\FieldToPropertyPass.cs" />
+    <None Include="src\Generator\Passes\FindSymbolsPass.cs" />
+    <None Include="src\Generator\Passes\FixDefaultParamValuesOfOverridesPass.cs" />
+    <None Include="src\Generator\Passes\FixParameterUsageFromComments.cs" />
+    <None Include="src\Generator\Passes\FlattenAnonymousTypesToFields.cs" />
+    <None Include="src\Generator\Passes\FunctionToInstanceMethodPass.cs" />
+    <None Include="src\Generator\Passes\FunctionToStaticMethodPass.cs" />
+    <None Include="src\Generator\Passes\GenerateAbstractImplementationsPass.cs" />
+    <None Include="src\Generator\Passes\GenerateSymbolsPass.cs" />
+    <None Include="src\Generator\Passes\GetterSetterToPropertyPass.cs" />
+    <None Include="src\Generator\Passes\HandleDefaultParamValuesPass.cs" />
+    <None Include="src\Generator\Passes\HandleVariableInitializerPass.cs" />
+    <None Include="src\Generator\Passes\IgnoreSystemDeclarationsPass.cs" />
+    <None Include="src\Generator\Passes\MakeProtectedNestedTypesPublicPass.cs" />
+    <None Include="src\Generator\Passes\MarkEventsWithUniqueIdPass.cs" />
+    <None Include="src\Generator\Passes\MarkUsedClassInternalsPass.cs" />
+    <None Include="src\Generator\Passes\MarshalPrimitivePointersAsRefTypePass.cs" />
+    <None Include="src\Generator\Passes\MatchParamNamesWithInstantiatedFromPass.cs" />
+    <None Include="src\Generator\Passes\MoveFunctionToClassPass.cs" />
+    <None Include="src\Generator\Passes\MultipleInheritancePass.cs" />
+    <None Include="src\Generator\Passes\ParamTypeToInterfacePass.cs" />
+    <None Include="src\Generator\Passes\Pass.cs" />
+    <None Include="src\Generator\Passes\PassBuilder.cs" />
+    <None Include="src\Generator\Passes\RenamePass.cs" />
+    <None Include="src\Generator\Passes\ResolveIncompleteDeclsPass.cs" />
+    <None Include="src\Generator\Passes\SpecializationMethodsWithDependentPointersPass.cs" />
+    <None Include="src\Generator\Passes\StripUnusedSystemTypesPass.cs" />
+    <None Include="src\Generator\Passes\SymbolsCodeGenerator.cs" />
+    <None Include="src\Generator\Passes\TrimSpecializationsPass.cs" />
+    <None Include="src\Generator\Passes\ValidateOperatorsPass.cs" />
+    <None Include="src\Generator\Types\DeclMap.cs" />
+    <None Include="src\Generator\Types\DeclMapDatabase.cs" />
+    <None Include="src\Generator\Types\Std\Stdlib.CLI.cs" />
+    <None Include="src\Generator\Types\Std\Stdlib.CSharp.cs" />
+    <None Include="src\Generator\Types\Std\Stdlib.cs" />
+    <None Include="src\Generator\Types\TypeIgnoreChecker.cs" />
+    <None Include="src\Generator\Types\TypeMap.cs" />
+    <None Include="src\Generator\Types\TypeMapDatabase.cs" />
+    <None Include="src\Generator\Utils\BlockGenerator.cs" />
+    <None Include="src\Generator\Utils\ExpressionEvaluator.cs" />
+    <None Include="src\Generator\Utils\FSM\ConsoleWriter.cs" />
+    <None Include="src\Generator\Utils\FSM\DFSM.cs" />
+    <None Include="src\Generator\Utils\FSM\Minimize.cs" />
+    <None Include="src\Generator\Utils\FSM\NDFSM.cs" />
+    <None Include="src\Generator\Utils\FSM\Program.cs" />
+    <None Include="src\Generator\Utils\FSM\Transition.cs" />
+    <None Include="src\Generator\Utils\HtmlEncoder.cs" />
+    <None Include="src\Generator\Utils\IEnumerableExtensions.cs" />
+    <None Include="src\Generator\Utils\Options.cs" />
+    <None Include="src\Generator\Utils\OrderedSet.cs" />
+    <None Include="src\Generator\Utils\ProcessHelper.cs" />
+    <None Include="src\Generator\Utils\TextGenerator.cs" />
+    <None Include="src\Generator\Utils\Utils.cs" />
+    <None Include="src\Parser\ASTConverter.Expr.cs" />
+    <None Include="src\Parser\ASTConverter.Stmt.cs" />
+    <None Include="src\Parser\ASTConverter.cs" />
+    <None Include="src\Parser\BuildConfig.cs" />
+    <None Include="src\Parser\LinkerOptions.cs" />
+    <None Include="src\Parser\Parser.cs" />
+    <None Include="src\Parser\ParserOptions.cs" />
+    <None Include="src\Runtime\MarshalUtil.cs" />
+    <None Include="src\Runtime\Pointer.cs" />
+    <None Include="src\Runtime\SafeUnmanagedMemoryHandle.cs" />
+    <None Include="src\Runtime\SymbolResolver.cs" />
+    <None Include="src\Runtime\UTF32Marshaller.cs" />
+    <None Include="src\Runtime\UTF8Marshaller.cs" />
+    <None Include="src\Runtime\VTables.cs" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
