@@ -156,6 +156,7 @@ namespace Engine
         glm::vec4 Colour{ 1.0f, 1.0f, 1.0f, 1.0f };
         SpriteType meshType = Square;
 
+        std::string fileName;
         Ref<Texture2D> texture;
         float tilingFactor = 1.0f;
 
@@ -454,7 +455,8 @@ namespace Engine
         FMOD_VECTOR position = FMOD_VECTOR{ 0.0f, 0.0f, 0.0f };
         FMOD_VECTOR velocity = FMOD_VECTOR{ 0.0f, 0.0f, 0.0f };
 
-        std::string soundFile = "NO FILE SELECTED";
+        std::string soundName = "NO FILE SELECTED";
+        std::string soundFile = "0";
         FMOD::Sound* sound = nullptr;
         FMOD::System* m_SoundSystem = nullptr;
 

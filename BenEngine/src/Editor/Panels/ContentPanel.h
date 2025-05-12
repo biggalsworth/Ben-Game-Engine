@@ -40,7 +40,9 @@ namespace Engine
 	private:
 		Ref<Scene> m_Context;
 		std::filesystem::path m_SelectedPath;
+		std::string m_SelectedFile;
 		std::filesystem::path m_CurrentDirectory;
+		bool deleting;
 
 		//float* ThumbnailSize = new float(128.0f);
 		//float* Padding = new float(16.0f);

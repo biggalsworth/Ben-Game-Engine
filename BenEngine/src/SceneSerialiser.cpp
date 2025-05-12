@@ -102,7 +102,7 @@ namespace Engine
 
             out << YAML::Key << "position"  << YAML::Value << glm::vec3(audioSource.position.x, audioSource.position.y, audioSource.position.z);
             out << YAML::Key << "velocity"  << YAML::Value << glm::vec3(audioSource.velocity.x, audioSource.velocity.y, audioSource.velocity.z);
-            out << YAML::Key << "soundFile" << YAML::Value << (std::string)audioSource.soundFile;
+            out << YAML::Key << "soundFile" << YAML::Value << FileSystem::FindRelativeToProject((std::filesystem::path)audioSource.soundFile).string();
             out << YAML::Key << "volume"    << YAML::Value << (float)audioSource.volume;
             out << YAML::Key << "pitch"     << YAML::Value << (float)audioSource.pitch;
             out << YAML::Key << "MaxRange"  << YAML::Value << (float)audioSource.MaxRange;
@@ -121,7 +121,8 @@ namespace Engine
             auto& spriteRendererComponent = entity.GetComponent<SpriteRendererComponent>();
             out << YAML::Key << "Colour" << YAML::Value << spriteRendererComponent.Colour;
             out << YAML::Key << "meshType" << YAML::Value << spriteRendererComponent.meshType;
-            out << YAML::Key << "Path" << YAML::Value << spriteRendererComponent.texture->GetPath();
+            //out << YAML::Key << "Path" << YAML::Value << spriteRendererComponent.texture->GetPath();
+            out << YAML::Key << "Path" << YAML::Value << FileSystem::FindRelativeToProject(spriteRendererComponent.texture->GetPath()).string();
             out << YAML::Key << "tilingFactor" << YAML::Value << spriteRendererComponent.tilingFactor;
 
             out << YAML::EndMap; // SpriteRendererComponent
@@ -235,7 +236,8 @@ namespace Engine
                 out << YAML::BeginMap;
 
                 out << YAML::Key << "folderPath" << YAML::Value << script->folderPath.string();
-                out << YAML::Key << "filePath" << YAML::Value << script->filePath;
+                //out << YAML::Key << "filePath" << YAML::Value << script->filePath;
+                out << YAML::Key << "filePath" << YAML::Value << FileSystem::FindRelativeToProject(script->filePath).string();
                 out << YAML::Key << "className" << YAML::Value << script->className;
 
                 out << YAML::EndMap;
@@ -243,18 +245,18 @@ namespace Engine
             }
         }
 
-        if (entity.HasComponent<ScriptComponent>())
-        {
-            out << YAML::Key << "ScriptComponent";
-            out << YAML::BeginMap;
-
-            auto& script = entity.GetComponent<ScriptComponent>();
-            out << YAML::Key << "folderPath" << YAML::Value << script.folderPath.string();
-            out << YAML::Key << "filePath" << YAML::Value << script.filePath;
-            out << YAML::Key << "className" << YAML::Value << script.className;
-
-            out << YAML::EndMap;
-        }
+        //if (entity.HasComponent<ScriptComponent>())
+        //{
+        //    out << YAML::Key << "ScriptComponent";
+        //    out << YAML::BeginMap;
+        //
+        //    auto& script = entity.GetComponent<ScriptComponent>();
+        //    out << YAML::Key << "folderPath" << YAML::Value << script.folderPath.string();
+        //    out << YAML::Key << "filePath" << YAML::Value << script.filePath;
+        //    out << YAML::Key << "className" << YAML::Value << script.className;
+        //
+        //    out << YAML::EndMap;
+        //}
         
         if (entity.HasComponent<AnimationComponent>())
         {
@@ -273,7 +275,7 @@ namespace Engine
                 out << YAML::Key << ("AnimFile" + std::to_string(i));
                 out << YAML::BeginMap;
 
-                out << YAML::Key << "folderPath" << YAML::Value << file.string();
+                out << YAML::Key << "folderPath" << YAML::Value << FileSystem::FindRelativeToProject(file).string();
 
                 out << YAML::EndMap;
                 i++;
@@ -309,6 +311,7 @@ namespace Engine
 
     bool SceneSerialiser::Deserialise(const std::string& filePath)
     {
+        std::filesystem::path tempFile;
 
         std::ifstream stream(filePath);
         std::stringstream strStream;
@@ -394,7 +397,11 @@ namespace Engine
 
                     //glm::vec3 temp = AudioComponent["position"].as<glm::vec3>();
                     //src.position = FMOD_VECTOR{temp.x, temp.y, temp.z};
-                    src.soundFile = AudioComponent["soundFile"].as<std::string>();
+
+                    tempFile = FileSystem::FindSystemPath(AudioComponent["soundFile"].as<std::string>());
+                    src.soundFile = tempFile.string();
+                    src.soundName = tempFile.filename().string();
+
                     src.volume = AudioComponent["volume"].as<float>();
                     src.pitch = AudioComponent["pitch"].as<float>();
                     src.MaxRange = AudioComponent["MaxRange"].as<float>();
@@ -410,7 +417,11 @@ namespace Engine
                 {
                     auto& src = deserializedEntity.AddComponent<SpriteRendererComponent>();
                     src.Colour = spriteRendererComponent["Colour"].as<glm::vec4>();
-                    src.texture = Project::GetTextureLibrary()->CreateTexture(spriteRendererComponent["Path"].as<std::string>());
+
+                    tempFile = FileSystem::FindSystemPath(spriteRendererComponent["Path"].as<std::string>());
+                    src.fileName = tempFile.filename().string();
+                    src.texture = Project::GetTextureLibrary()->CreateTexture(tempFile.string());
+
                     src.tilingFactor = spriteRendererComponent["tilingFactor"].as<float>();
                     src.meshType = (SpriteType)spriteRendererComponent["meshType"].as<int>();
 
@@ -496,8 +507,12 @@ namespace Engine
                         if (currScript) 
                         {
                             ScriptComponent* script = deserializedEntity.GetComponent<ScriptComponentManager>().AddScript();
-                            script->filePath = currScript["filePath"].as<std::string>();
+                            //script->filePath = currScript["filePath"].as<std::string>();
+                            script->filePath = FileSystem::FindSystemPath(currScript["filePath"].as<std::string>()).string();
+
                             script->folderPath = std::filesystem::path(currScript["folderPath"].as<std::string>());
+
+
                             script->className = currScript["className"].as<std::string>();
                         }
                     }

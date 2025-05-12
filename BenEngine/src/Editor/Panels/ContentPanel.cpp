@@ -127,6 +127,8 @@ namespace Engine
         //list files in folder
         if (m_SelectedPath != "")
         {
+            ImGuiButtonFlags flags;
+
             ImGui::BeginChild("Files", ImVec2(ImGui::GetContentRegionAvail().x, ImGui::GetContentRegionAvail().y), true);
 
             float panelWidth = ImGui::GetContentRegionAvail().x;
@@ -151,9 +153,16 @@ namespace Engine
                         //ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2((ImGui::GetContentRegionAvail().x - 80.0f) / 2.0f, 0.0f));
                         GLuint texture = Project::LoadTextureFromFile("src/Extra/Icons/UI/file.png");
                         //if (ImGui::ImageButton(path.filename().string().c_str(), (ImTextureID)(intptr_t)texture, ImVec2(80.0f, 80.0f)))
+
+
                         if (ImGui::ImageButton(path.filename().string().c_str(), (ImTextureID)(intptr_t)texture, ImVec2(60.0f, 60.0f)))
                         {
-                            system(("start " + relativePathString).c_str()); // Opens with the default program
+                            if (m_SelectedFile != path.string())
+                                m_SelectedFile = path.string();
+                            else
+                            {
+                                system(("start " + relativePathString).c_str()); // Opens with the default program
+                            }
                         }
 
                         //Allow the ability to drag files
@@ -173,12 +182,19 @@ namespace Engine
                     ImGui::PopID();
                 }
 
+                //if left mouse button is pressed, clear the context
+                if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
+                {
+                    m_SelectedFile = "";
+                }
+
                 RightClickMenu();
                 ImGui::EndTable();
 
             }
             ImGui::EndChild();
         }
+
     }
 
     void ContentPanel::ListFolders(const std::filesystem::path& directoryPath)
@@ -232,7 +248,71 @@ namespace Engine
         //ShowSettingsPanel();
     }
     void ContentPanel::RightClickMenu()
-    {
+    {   
+        if (m_SelectedFile != "")
+        {
+
+            if (ImGui::BeginPopupContextWindow(0, 1 | ImGuiPopupFlags_MouseButtonRight))
+            {
+
+                if (ImGui::BeginMenu("Rename"))
+                {
+                    static char inputBuffer[128] = "";
+
+
+                    std::filesystem::path newPath = (std::filesystem::path)m_SelectedFile;
+                    std::string fileExtension = newPath.extension().string();
+
+                    ImGui::InputTextWithHint("##NewName", "File Name...", inputBuffer, IM_ARRAYSIZE(inputBuffer));
+
+                    if (ImGui::Button("Apply"))
+                    {
+                        newPath.replace_filename(std::string(inputBuffer) + fileExtension);
+
+                        //if (std::rename( m_SelectedFile.c_str(), newPath.string().c_str()) == 0) {
+                        //    std::cout << "File renamed successfully.\n";
+                        //}
+                        //else 
+                        //{
+                        //    LOG_ERROR("Error renaming the file");
+                        //}
+                        try {
+                            std::filesystem::rename(m_SelectedFile, newPath);
+                            std::cout << "File renamed successfully to " << newPath.string() << ".\n";
+                        }
+                        catch (const std::filesystem::filesystem_error& e) {
+                            std::cerr << "Error renaming the file: " << e.what() << '\n';
+                        }
+
+
+                    }
+
+                    ImGui::EndMenu(); // End "Create Object"
+                }
+
+
+                if (ImGui::BeginMenu("Delete"))
+                {
+                    ImGui::Text("THIS CANNOT BE UNDONE!\nProceed?");
+                    ImGUILibrary::DrawMenuItem("Yes", [this](Ref<Scene> m_Context) { 
+
+                        if (std::filesystem::remove(m_SelectedFile) == 0) {
+                            LOG_WARN("File deleted successfully.\n");
+                        }
+                        else
+                        {
+                            LOG_ERROR("Error deleting the file");
+                        }
+
+                    }, m_Context);
+
+                    ImGui::EndMenu(); // End "Create Object"
+                }
+
+                ImGui::EndPopup();
+            }
+        }
+
         if (ImGui::BeginPopupContextWindow(0, 1 | ImGuiPopupFlags_NoOpenOverItems))
         {
             ImGUILibrary::DrawMenuItem("Create Folder", [this](Ref<Scene> m_Context) { FileSystem::CreateFolder(m_SelectedPath, "New Folder"); }, m_Context);
@@ -240,4 +320,5 @@ namespace Engine
             ImGui::EndPopup();
         }
     }
+
 }

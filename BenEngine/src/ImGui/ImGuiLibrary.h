@@ -301,7 +301,40 @@ namespace Engine
 			ImGui::PopID();
 		}
 
+		static bool Warning(std::string warningMessage, bool* opened)
+		{
+			bool result = false;
 
+			ImGui::OpenPopup("WarningPopup");
+			
+			//modal is a blocking operation, the user cannot continue until they have interacted with this
+			if (ImGui::BeginPopupModal("WarningPopup", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+			{
+				ImGui::Text(warningMessage.c_str());
+			
+				ImGui::Text("Are you sure you want to proceed?");
+			
+				ImGui::Separator();
+			
+				if (ImGui::Button("Yes", ImVec2(100, 0)))
+				{
+					result = true;
+					*opened = false;
+					//ImGui::CloseCurrentPopup();
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("No", ImVec2(100, 0)))
+				{
+					result = false;
+					*opened = false;
+					//ImGui::CloseCurrentPopup();
+				}
+			
+				ImGui::EndPopup();
+			}
+
+			return result;
+		}
 
 		static void DrawSearchWindow(std::string label, std::string* outputString, std::string extension = "")
 		{

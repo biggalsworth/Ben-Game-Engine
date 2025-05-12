@@ -94,7 +94,7 @@ namespace Engine
         ImGuiTreeNodeFlags flags = ((m_SelectionContext == entity) ? ImGuiTreeNodeFlags_Selected : 0) | ImGuiTreeNodeFlags_OpenOnArrow;
         bool opened = ImGui::TreeNodeEx((void*)(uint64_t)(uint32_t)entity, flags, tag.c_str()); //add the entity to the scene hierarchy
 
-            // If the item is clicked (without dragging), select it
+        // If the item is clicked (without dragging), select it
         if (ImGui::IsItemClicked())
         {
             m_SelectionContext = entity; // Select the entity

@@ -261,7 +261,7 @@ namespace Engine
 	void EditorLayer::OnImGuiRender()
 	{
 		static bool dockspaceOpen = true;
-		ImGUILibrary::CreateDockspace(dockspaceOpen, "Dockspace Demo");
+		ImGUILibrary::CreateDockspace(dockspaceOpen, "Dockspace");
 
 		if (ImGui::BeginMenuBar())
 		{

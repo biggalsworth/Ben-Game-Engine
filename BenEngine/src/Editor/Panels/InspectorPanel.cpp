@@ -552,20 +552,10 @@ namespace Engine
                 static char searchBuffer[128]; // Buffer for storing search text
                 static std::filesystem::path currentDir;
 
-                //finding files
-                static std::vector<std::filesystem::path>* fileList = new std::vector<std::filesystem::path>(); // file names
-
-                ImGui::ColorEdit4("Colour", glm::value_ptr(component.Colour));
-
-                ImGui::Dummy(ImVec2{ 0, 10 });
-                ImGui::Separator();
-
-                if (ImGui::Button("Drop Texture"))
+                ImGui::Text("Drop File Here:");
+                if (ImGui::Button(std::string("Current Texture: " + component.fileName).c_str(), ImVec2(ImGui::GetContentRegionAvail().x, 25)))
                 {
-                    //ImGui::OpenPopup("TextureSelection");
-                    //searchBuffer[0] = '\0'; // Empty the buffer
-                    //currentDir = std::filesystem::path("assets");
-                    //fileList->clear();
+                    system(("start " + component.texture->GetPath()).c_str()); // Opens with default program
                 }
                 if (ImGui::BeginDragDropTarget())
                 {
@@ -577,6 +567,7 @@ namespace Engine
                             if (dropped.filename().extension() == ".png")
                             {
                                 //component.soundFile = FileSystem::FindRelativeToProject(dropped).string();
+                                component.fileName = dropped.filename().string();
                                 component.texture = Project::GetTextureLibrary()->CreateTexture(dropped.string());
 
                             }
@@ -589,104 +580,26 @@ namespace Engine
                     ImGui::EndDragDropTarget();
                 }
 
+                ImGui::Dummy(ImVec2{ 0, 10 });
+
 
                 std::string output = "";
                 ImGUILibrary::DrawSearchWindow("Select Texture", &output, ".png");
                 if (output != "")
                 {
+                    component.fileName = std::filesystem::path(output).filename().string();
+
                     component.texture = Project::GetTextureLibrary()->CreateTexture(output);
                 }
-                //if (ImGui::BeginPopup("TextureSelection"))
-                //{
-                //    ImGui::InputTextWithHint("##Search", "Search texture...", searchBuffer, IM_ARRAYSIZE(searchBuffer));
-                //
-                //    ImGui::SameLine();
-                //
-                //    if (ImGui::Button("Search"))
-                //    {
-                //        if (searchBuffer[0] == '\0')
-                //        {
-                //            //fileList->clear();
-                //        }
-                //        else
-                //        {
-                //            std::cout << searchBuffer << std::endl;
-                //            fileList = Project::FindFileInSubfolders(std::filesystem::path("assets"), searchBuffer);
-                //        }
-                //    }
-                //
-                //
-                #pragma region FileAccess
-                //    if (fileList->size() > 0)
-                //    {
-                //
-                //        for (int i = 0; i < fileList->size(); i++)
-                //        {
-                //            std::filesystem::path& it = (*fileList)[i];  // Get the current element in the list
-                //
-                //            if (ImGui::MenuItem(it.filename().string().c_str()))  // Corrected MenuItem function call
-                //            {
-                //                if (it.filename().extension() == ".png")
-                //                {
-                //                    component.texture = Project::GetTextureLibrary()->CreateTexture(it.string());
-                //                    std::cout << "File:" << it.string() << std::endl;
-                //                }
-                //            }
-                //        }
-                //    }
-                //    else
-                //    {
-                //        if (currentDir != std::filesystem::path("assets"))
-                //        {
-                //            if (ImGui::Button("<- Back"))
-                //            {
-                //                currentDir = currentDir.parent_path();
-                //            }
-                //        }
-                //
-                //        for (auto& it : std::filesystem::directory_iterator(currentDir))
-                //        {
-                //            const auto& path = it.path(); // the path of the current iterator
-                //            std::filesystem::relative(path, std::filesystem::path("assets"));
-                //            auto relativePathString = path.string(); //string of the path we are looking at
-                //
-                //            if (it.is_directory())
-                //            {
-                //                if (ImGui::Button(relativePathString.c_str()))
-                //                {
-                //                    std::cout << relativePathString.c_str() << std::endl;
-                //                    currentDir /= path.filename();
-                //                }
-                //            }
-                //            else
-                //            {
-                //                if (ImGui::MenuItem(relativePathString.c_str()))
-                //                {
-                //                    if (path.extension() == ".png")
-                //                    {
-                //                        component.texture = Project::GetTextureLibrary()->CreateTexture(relativePathString.c_str());
-                //                        std::cout << relativePathString.c_str() << std::endl;
-                //                    }
-                //                }
-                //            }
-                //        }
-                //    }
-#pragma endregion
-                //
-                //    ImGui::EndPopup();
-                //
-                //}
-                //if (ImGui::Button("Texture", ImVec2(100.0f, 0.0f)))
-                //{
-                //    //const wchar_t* path = (const wchar_t*)payload->Data;
-                //    std::filesystem::path texturePath = std::filesystem::path("assets/Textures/SquareSprite.png");
-                //
-                //    component.texture = Project::GetTextureLibrary()->CreateTexture("src/Renderer/BasicTextures/CircleSprite.png");
-                //}
+
+                ImGui::Separator();
 
                 ImGui::Dummy(ImVec2{ 0, 10 });
 
-                //ImGui::TextWrapped("Tiling Factor:");
+                ImGui::ColorEdit4("Colour", glm::value_ptr(component.Colour));
+
+                ImGui::Dummy(ImVec2{ 0, 10 });
+
                 ImGui::DragFloat("Tiling Factor", &component.tilingFactor, 0.1f, 0.0f, 10.0f);
             });
 
@@ -898,7 +811,12 @@ namespace Engine
         ImGUILibrary::DrawComponent<AudioSourceComponent>("Audio Source", entity, [](auto& component)
             {
 
-                ImGui::Text(std::string("Current Sound: " + component.soundFile).c_str());
+                //if (component.soundFile == "0")
+                //{
+                //    component.soundName = "NO AUDIO LOADED"
+                //}
+
+                ImGui::Text(std::string("Current Sound: " + component.soundName).c_str());
                 if (ImGui::BeginDragDropTarget())
                 {
                     //Drag drop logic
@@ -910,6 +828,7 @@ namespace Engine
                             if (dropped.filename().extension() == ".mp3")
                             {
                                 component.soundFile = FileSystem::FindRelativeToProject(dropped).string();
+                                component.soundName = dropped.filename().string();
                             }
                         }
                         catch (...)
