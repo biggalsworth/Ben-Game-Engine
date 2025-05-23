@@ -1,0 +1,50 @@
+Scene: Untitled Scene
+Entities:
+  - Entity: 9721956957001445031
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: NetworkClient
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: Ben-Game-Engine\BenEngine/src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    NetworkClientComponent:
+      port: 5046
+      IPAddress: 127.0.0.1
+    ScriptComponentManager:
+      count: 1
+    ScriptComponent0:
+      folderPath: E:\Coding\Github\Ben-Game-Engine\BenEngine\../Projects/GameDemo\Assets/Scripts
+      filePath: Ben-Game-Engine\BenEngine\../Projects/GameDemo\Assets\Scripts\TestFile.cs
+      className: TestFile
+  - Entity: 16862330800803293324
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Main Camera
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 1.0471976
+        PerspectiveNear: 0.01
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
+    NetworkHostComponent:
+      port: 5046
+      IPAddress: 127.0.0.1
+    ScriptComponentManager:
+      count: 0

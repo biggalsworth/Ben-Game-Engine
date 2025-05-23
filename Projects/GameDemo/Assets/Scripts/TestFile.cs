@@ -15,7 +15,8 @@ namespace Braveheart
 
         public void Update()
         {
-            Debug.Log("HELLO");
+           
+
         }
     }
 }

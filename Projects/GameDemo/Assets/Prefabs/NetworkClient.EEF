@@ -1,9 +1,9 @@
 Entities:
-  - Entity: 17268105078209982909
+  - Entity: 9721956957001445031
     RelationshipComponent:
       Parent: 4294967295
     TagComponent:
-      Tag: Square
+      Tag: NetworkClient
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
@@ -13,5 +13,12 @@ Entities:
       meshType: 0
       Path: Ben-Game-Engine\BenEngine/src/Renderer/BasicTextures/WhiteTexture.png
       tilingFactor: 1
+    NetworkClientComponent:
+      port: 5046
+      IPAddress: 127.0.0.1
     ScriptComponentManager:
-      count: 0
+      count: 1
+    ScriptComponent0:
+      folderPath: E:\Coding\Github\Ben-Game-Engine\BenEngine\../Projects/GameDemo\Assets/Scripts
+      filePath: Ben-Game-Engine\BenEngine\../Projects/GameDemo\Assets\Scripts\TestFile.cs
+      className: TestFile

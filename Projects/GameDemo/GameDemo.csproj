@@ -54,23 +54,21 @@
   </PropertyGroup>
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <Reference Include="ScriptCore" />
-    <Reference Include="CppSharp" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
     <Reference Include="ScriptCore" />
-    <Reference Include="CppSharp" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Dist|x64' ">
     <Reference Include="ScriptCore" />
-    <Reference Include="CppSharp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Audio\laser-shot-ingame-230500.mp3" />
-    <None Include="Assets\Prefabs\SquarePrefab.EEF" />
+    <None Include="Assets\Prefabs\NetworkClient.EEF" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\EnemyDetection.cs" />
     <Compile Include="Assets\Scripts\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\HealthPickup.cs" />
+    <Compile Include="Assets\Scripts\NetworkClient.cs" />
     <Compile Include="Assets\Scripts\NetworkManager.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />

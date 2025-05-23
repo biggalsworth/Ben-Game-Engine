@@ -45,7 +45,7 @@ project "GameDemo"
 
     links{
         "ScriptCore",
-        "CppSharp",
+        --"CppSharp",
     }
         
     postbuildcommands {

@@ -172,8 +172,11 @@ namespace Engine
 
                 RightClickMenu();
                 ImGui::EndTable();
-
+                
+            
             }
+
+            ImGui::EndChild();
             if (ImGui::BeginDragDropTarget())
             {
                 if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("ENTITY"))
@@ -199,8 +202,6 @@ namespace Engine
                 }
                 ImGui::EndDragDropTarget();
             }
-
-            ImGui::EndChild();
         }
     }
 
