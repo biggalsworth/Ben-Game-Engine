@@ -257,13 +257,14 @@ namespace Engine
 		rb.RuntimeBody = body;
 
 
-		b2Polygon groundBox = b2MakeBox(50.0f, 10.0f);
+		//b2Polygon groundBox = b2MakeBox(50.0f, 10.0f);
 
 		if (entity.HasComponent<BoxCollider2DComponent>())
 			rb.RuntimeShape = new b2ShapeId(entity.GetComponent<BoxCollider2DComponent>().Build(body, transform.Scale + transform.WorldScale, (uint32_t)entity));
 
 		if (entity.HasComponent<CircleCollider2DComponent>())
-			rb.RuntimeShape = entity.GetComponent<CircleCollider2DComponent>().Build(body, transform.Scale + transform.WorldScale, (uint32_t)entity);
+			rb.RuntimeShape = new b2ShapeId(entity.GetComponent<CircleCollider2DComponent>().Build(body, transform.Scale + transform.WorldScale, (uint32_t)entity));
+
 	}
 
 	void PhysicsSystem::DestroyBody(Entity entity)

@@ -27,6 +27,7 @@ namespace Engine
 
 		//void RightClickMenu();
 		void RightClickMenu();
+		void CreateMenu();
 
 	private:
 		Ref<Scene> m_Context;

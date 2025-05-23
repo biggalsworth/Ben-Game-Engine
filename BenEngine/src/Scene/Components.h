@@ -161,7 +161,7 @@ namespace Engine
         float tilingFactor = 1.0f;
 
         //SpriteRendererComponent() = default;
-        SpriteRendererComponent() { texture = Project::GetTextureLibrary()->CreateTexture("src/Renderer/BasicTextures/WhiteTexture.png"); }
+        SpriteRendererComponent() { texture = Project::GetTextureLibrary()->CreateTexture(std::filesystem::current_path().lexically_normal().string() + "/src/Renderer/BasicTextures/WhiteTexture.png"); }
         SpriteRendererComponent(const SpriteRendererComponent&) = default;
         SpriteRendererComponent(const glm::vec4 colour) : Colour(colour) {}
     };
@@ -286,7 +286,7 @@ namespace Engine
         CircleCollider2DComponent() = default;
         CircleCollider2DComponent(const CircleCollider2DComponent&) = default;
 
-        b2ShapeId* Build(b2BodyId* body, glm::vec3 scaleModifier, uint32_t handle)
+        b2ShapeId Build(b2BodyId* body, glm::vec3 scaleModifier, uint32_t handle)
         {
             b2Circle circle = b2Circle();
             circle.center = b2Vec2{ 0.0f, 0.0f };
@@ -302,7 +302,7 @@ namespace Engine
             PhysicsSystem::ShapeData* shape = new PhysicsSystem::ShapeData{ (uint32_t)handle, false };
             shapeDef.userData = reinterpret_cast<void*>((PhysicsSystem::ShapeData*)shape);
 
-            b2ShapeId* shapeId = &b2CreateCircleShape(*body, &shapeDef, &circle);
+            b2ShapeId shapeId = b2CreateCircleShape(*body, &shapeDef, &circle);
 
             return shapeId;
 

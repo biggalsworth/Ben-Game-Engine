@@ -1,0 +1,17 @@
+Entities:
+  - Entity: 17268105078209982909
+    RelationshipComponent:
+      Parent: 4294967295
+    TagComponent:
+      Tag: Square
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Colour: [1, 1, 1, 1]
+      meshType: 0
+      Path: Ben-Game-Engine\BenEngine/src/Renderer/BasicTextures/WhiteTexture.png
+      tilingFactor: 1
+    ScriptComponentManager:
+      count: 0

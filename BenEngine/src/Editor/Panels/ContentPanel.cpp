@@ -12,6 +12,7 @@
 #include <Engine.h>
 
 #include <GraphicsAPI/stb_image.h>
+#include <Scene/SceneSerialiser.h>
 
 
 namespace Engine
@@ -192,6 +193,32 @@ namespace Engine
                 ImGui::EndTable();
 
             }
+            if (ImGui::BeginDragDropTarget())
+            {
+                if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("ENTITY"))
+                {
+                    if (std::filesystem::exists(m_SelectedPath))
+                    {
+                        try
+                        {
+                            Entity* droppedEnt = static_cast<Entity*>(payload->Data); // Extract glm::vec3 pointer
+                            //SceneSerialiser serialiser(m_SelectedPath, (uint32_t)droppedEnt);
+                            SceneSerialiser serialiser(m_Context);
+
+                            std::string tag = droppedEnt->GetComponent<TagComponent>().Tag;
+                            std::replace(tag.begin(), tag.end(), ' ', '_'); // Replace spaces with underscore
+
+                            serialiser.EntitySerialise(m_SelectedPath.string() + "\\" + tag, (entt::entity)*droppedEnt);
+                        }
+                        catch (...)
+                        {
+
+                        }
+                    }
+                }
+                ImGui::EndDragDropTarget();
+            }
+
             ImGui::EndChild();
         }
 

@@ -97,6 +97,7 @@ namespace Engine
 		std::filesystem::path fullPath = directory;
 		std::filesystem::path localpath = std::filesystem::current_path();
 
+		//finds the engine folder, even if changed name
 		std::string baseFolder = localpath.parent_path().filename().string();
 
 		// Convert path to string for easy manipulation

@@ -4,7 +4,6 @@
 #include "Scene/Components.h"
 #include "Utils/YamlConverter.h"
 
-#include <yaml-cpp/yaml.h>
 #include <fstream>
 
 #include "Editor/Project.h"
@@ -122,7 +121,8 @@ namespace Engine
             out << YAML::Key << "Colour" << YAML::Value << spriteRendererComponent.Colour;
             out << YAML::Key << "meshType" << YAML::Value << spriteRendererComponent.meshType;
             //out << YAML::Key << "Path" << YAML::Value << spriteRendererComponent.texture->GetPath();
-            out << YAML::Key << "Path" << YAML::Value << FileSystem::FindRelativeToProject(spriteRendererComponent.texture->GetPath()).string();
+            std::string newPath = (FileSystem::FindRelativeToProject(spriteRendererComponent.texture->GetPath())).string();
+            out << YAML::Key << "Path" << YAML::Value << newPath;
             out << YAML::Key << "tilingFactor" << YAML::Value << spriteRendererComponent.tilingFactor;
 
             out << YAML::EndMap; // SpriteRendererComponent
@@ -309,34 +309,16 @@ namespace Engine
         fout << out.c_str();
     }
 
-    bool SceneSerialiser::Deserialise(const std::string& filePath)
+    void SceneSerialiser::EntityDeserialise(YAML::Node data)
     {
         std::filesystem::path tempFile;
 
-        std::ifstream stream(filePath);
-        std::stringstream strStream;
-        strStream << stream.rdbuf();
-
-        YAML::Node data;
-
-        try
-        {
-            data = YAML::Load(strStream.str());
-        }
-        catch (YAML::ParserException e)
-        {
-            return false;
-        }
-
-        if (!data["Scene"]) return false;
-
-        std::string sceneName = data["Scene"].as<std::string>();
-        LOG_TRACE("Deserializing Scene '{0}'", sceneName);
         auto entities = data["Entities"];
         if (entities)
         {
             for (auto entity : entities)
             {
+
                 uint64_t uuid = entity["Entity"].as<uint64_t>();
 
                 std::string name;
@@ -504,7 +486,7 @@ namespace Engine
                     for (int i = 0; i < count; i++)
                     {
                         auto currScript = entity["ScriptComponent" + std::to_string(i)];
-                        if (currScript) 
+                        if (currScript)
                         {
                             ScriptComponent* script = deserializedEntity.GetComponent<ScriptComponentManager>().AddScript();
                             //script->filePath = currScript["filePath"].as<std::string>();
@@ -525,7 +507,7 @@ namespace Engine
                     animComp.interval = anim["interval"].as<float>();
 
                     int count = anim["count"].as<int>();
-                    
+
                     for (int i = 0; i <= count; i++)
                     {
                         auto currAnim = entity["AnimFile" + std::to_string(i)];
@@ -548,7 +530,81 @@ namespace Engine
                 // Add more components here once they are implemented into the engine
             }
         }
+    }
+
+
+    bool SceneSerialiser::Deserialise(const std::string& filePath)
+    {
+
+        std::ifstream stream(filePath);
+        std::stringstream strStream;
+        strStream << stream.rdbuf();
+
+        YAML::Node data;
+
+        try
+        {
+            data = YAML::Load(strStream.str());
+        }
+        catch (YAML::ParserException e)
+        {
+            return false;
+        }
+
+        if (!data["Scene"]) return false;
+
+        std::string sceneName = data["Scene"].as<std::string>();
+        LOG_TRACE("Deserializing Scene '{0}'", sceneName);
+
+        EntityDeserialise(data);
+
         return true;
     }
+
+
+    void SceneSerialiser::EntitySerialise(const std::string& filePath, entt::entity entityID)
+    {
+        YAML::Emitter out;
+        out << YAML::BeginMap;
+
+        out << YAML::Key << "Entities";
+        out << YAML::Value << YAML::BeginSeq;
+
+        Entity currentEntity = Entity{ entityID, m_Scene.get() };
+
+        if (!currentEntity) return;
+
+        SerialiseEntity(out, currentEntity);
+
+        out << YAML::EndSeq;
+        out << YAML::EndMap;
+
+        //EEF - Engine Entity File
+        std::ofstream fout(filePath + ".EEF");
+        fout << out.c_str();
+    }
+
+    void SceneSerialiser::EntityLoad(const std::string& filePath)
+    {
+        YAML::Node data;
+        std::ifstream stream(filePath);
+        std::stringstream strStream;
+        strStream << stream.rdbuf();
+
+        try
+        {
+            data = YAML::Load(strStream.str());
+        }
+        catch (YAML::ParserException e)
+        {
+            return;
+        }
+
+        EntityDeserialise(data);
+
+
+    }
+
+
 }
 

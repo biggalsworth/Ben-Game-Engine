@@ -3,6 +3,7 @@
 #include "ImGui/ImGUILibrary.h"
 #include <imgui/imgui.h>
 #include "Scene/Components.h"
+#include "Scene/SceneSerialiser.h"
 
 namespace Engine
 {
@@ -29,6 +30,32 @@ namespace Engine
 
         if (m_Context)
         {
+            if (ImGui::BeginMenu("Create Object"))//, ImVec2(ImGui::GetContentRegionAvail().x, 20)))
+            {
+                CreateMenu();
+                ImGui::EndMenu();
+            }
+            if (ImGui::BeginDragDropTarget())
+            {
+                if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("FILE_PATH"))
+                {
+                    try
+                    {
+                        std::filesystem::path dropped = static_cast<const char*>(payload->Data);
+                        if (dropped.filename().extension() == ".EEF")
+                        {
+                            SceneSerialiser serialiser(m_Context);
+                            serialiser.EntityLoad(dropped.string());
+                        }
+                    }
+                    catch (...)
+                    {
+
+                    }
+                }
+                ImGui::EndDragDropTarget();
+            }
+
             //get all entities in the scene and render them in the hierarchy
             auto view = m_Context->m_Registry.view<entt::entity>();
             for (auto entityID : view)
@@ -50,6 +77,7 @@ namespace Engine
             RightClickMenu();
         }
         ImGui::End();
+
 
         ImGui::Begin("Inspector");
         if (m_SelectionContext)
@@ -256,6 +284,59 @@ namespace Engine
 
             ImGui::EndPopup();
         }
+    }
+    void SceneHierarchyPanel::CreateMenu()
+    {
+            ImGUILibrary::DrawMenuItem("Create Empty", [this](Ref<Scene> m_Context) { m_Context->CreateEntity("Empty Entity"); }, m_Context);
+
+            if (ImGui::BeginMenu("Create Sprite"))  // Parent menu item
+            {
+                //if (ImGui::MenuItem("Create Camera")) // Child menu item
+                //{
+                //    Entity cam = m_Context->CreateEntity("Camera");
+                //    cam.AddComponent<CameraComponent>();
+                //}
+
+                if (ImGui::MenuItem("Create Square")) // Child menu item
+                {
+                    Entity square = m_Context->CreateEntity("Square");
+                    square.AddComponent<SpriteRendererComponent>();
+                    square.GetComponent<TransformComponent>().Scale = glm::vec3(1.0f, 1.0f, 1.0f);
+                }
+
+                if (ImGui::MenuItem("Create Triangle")) // Child menu item
+                {
+                    Entity square = m_Context->CreateEntity("Triangle");
+                    square.AddComponent<SpriteRendererComponent>();
+                    square.GetComponent<SpriteRendererComponent>().meshType = Triangle;
+                    square.GetComponent<TransformComponent>().Scale = glm::vec3(1.0f, 1.0f, 1.0f);
+                }
+
+                ImGui::EndMenu(); // End "Create Object"
+            }
+
+            //ImGUILibrary::DrawMenuItem("Create Square", [this](Ref<Scene> m_Context) {
+            //    Entity square = m_Context->CreateEntity("Square");
+            //    square.AddComponent<SpriteRendererComponent>();
+            //    square.GetComponent<TransformComponent>().Scale = glm::vec3(1.0f, 1.0f, 1.0f);
+            //}, m_Context);
+
+            ImGUILibrary::DrawMenuItem("Camera", [this](Ref<Scene> m_Context) {
+
+                auto cams = m_Context->GetAllEntitiesWith<CameraComponent>();
+                std::string name = "Main Camera";
+                bool primary = true;
+                if (cams.size() > 0)
+                {
+                    name = "Camera";
+                    primary = false;
+                }
+
+                Entity cam = m_Context->CreateEntity(name);
+                CameraComponent& c = cam.AddComponent<CameraComponent>();
+                c.Primary = primary;
+                }, m_Context);
+
     }
 }
 
