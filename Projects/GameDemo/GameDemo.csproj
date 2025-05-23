@@ -65,8 +65,8 @@
     <Reference Include="CppSharp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Audio\Square.EEF" />
     <None Include="Assets\Audio\laser-shot-ingame-230500.mp3" />
+    <None Include="Assets\Prefabs\SquarePrefab.EEF" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\EnemyDetection.cs" />
     <Compile Include="Assets\Scripts\EnemyStats.cs" />

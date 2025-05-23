@@ -17,6 +17,8 @@ namespace Engine
 
 		void ListDirectoryContents(const std::filesystem::path& directoryPath);
 		void ListFolders(const std::filesystem::path& directoryPath);
+		void FolderOptions(std::filesystem::path path);
+		void ListFiles(const std::filesystem::directory_entry& it);
 		void ShowSettingsPanel();
 		void Render();
 

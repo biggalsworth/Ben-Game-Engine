@@ -135,7 +135,6 @@ namespace Engine
         if (ImGui::BeginPopupContextItem())
         {
 
-
             if (ImGui::BeginMenu("Create Child"))
             {
                 if (ImGui::BeginMenu("Create Sprite"))  // Parent menu item
