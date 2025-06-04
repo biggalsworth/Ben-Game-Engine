@@ -417,6 +417,8 @@ namespace Engine
                     ImGui::Text("THIS CANNOT BE UNDONE!\nProceed?");
                     ImGUILibrary::DrawMenuItem("Yes", [this](Ref<Scene> m_Context) {
 
+                        m_SelectedPath = "";
+
                         if (std::filesystem::remove(m_SelectedFile) == 0) {
                             LOG_WARN("File deleted successfully.\n");
                         }
@@ -463,73 +465,6 @@ namespace Engine
     void ContentPanel::RightClickMenu()
     {   
 
-        /*
-        if (m_SelectedFile != "")
-        {
-
-            if (ImGui::BeginPopupContextWindow(0, 1 | ImGuiPopupFlags_MouseButtonRight))
-            {
-                ImGUILibrary::DrawMenuItem("Open", [this](Ref<Scene> m_Context) { system(("start " + m_SelectedFile).c_str()); }, m_Context);
-
-                if (ImGui::BeginMenu("Rename"))
-                {
-                    static char inputBuffer[128] = "";
-
-
-                    std::filesystem::path newPath = (std::filesystem::path)m_SelectedFile;
-                    std::string fileExtension = newPath.extension().string();
-
-                    ImGui::InputTextWithHint("##NewName", "File Name...", inputBuffer, IM_ARRAYSIZE(inputBuffer));
-
-                    if (ImGui::Button("Apply"))
-                    {
-                        newPath.replace_filename(std::string(inputBuffer) + fileExtension);
-
-                        //if (std::rename( m_SelectedFile.c_str(), newPath.string().c_str()) == 0) {
-                        //    std::cout << "File renamed successfully.\n";
-                        //}
-                        //else 
-                        //{
-                        //    LOG_ERROR("Error renaming the file");
-                        //}
-                        try {
-                            std::filesystem::rename(m_SelectedFile, newPath);
-                            std::cout << "File renamed successfully to " << newPath.string() << ".\n";
-                        }
-                        catch (const std::filesystem::filesystem_error& e) {
-                            std::cerr << "Error renaming the file: " << e.what() << '\n';
-                        }
-
-
-                    }
-
-                    ImGui::EndMenu(); // End "Create Object"
-                }
-
-
-                if (ImGui::BeginMenu("Delete"))
-                {
-                    ImGui::Text("THIS CANNOT BE UNDONE!\nProceed?");
-                    ImGUILibrary::DrawMenuItem("Yes", [this](Ref<Scene> m_Context) { 
-
-                        if (std::filesystem::remove(m_SelectedFile) == 0) {
-                            LOG_WARN("File deleted successfully.\n");
-                        }
-                        else
-                        {
-                            LOG_ERROR("Error deleting the file");
-                        }
-
-                    }, m_Context);
-
-                    ImGui::EndMenu(); // End "Create Object"
-                }
-
-                ImGui::EndPopup();
-            }
-        }
-        */
-
         if (ImGui::BeginPopupContextWindow(0, 1 | ImGuiPopupFlags_NoOpenOverItems))
         {
             ImGUILibrary::DrawMenuItem("Create Folder", [this](Ref<Scene> m_Context) { FileSystem::CreateFolder(m_SelectedPath, "New Folder"); }, m_Context);
@@ -538,7 +473,6 @@ namespace Engine
             {
                 static char inputBuffer[128] = "\0";
 
-
                 std::filesystem::path newPath = ((std::filesystem::path)m_SelectedPath);
 
                 ImGui::InputTextWithHint("##NewName", "File Name...", inputBuffer, IM_ARRAYSIZE(inputBuffer));
@@ -546,6 +480,8 @@ namespace Engine
                 if (ImGui::Button("Apply"))
                 {
                     newPath.replace_filename(std::string(inputBuffer));
+
+                    inputBuffer[0] = '\0';
 
                     //if (std::rename( m_SelectedFile.c_str(), newPath.string().c_str()) == 0) {
                     //    std::cout << "File renamed successfully.\n";

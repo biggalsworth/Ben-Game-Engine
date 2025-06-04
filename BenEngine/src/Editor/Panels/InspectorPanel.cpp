@@ -216,18 +216,21 @@ namespace Engine
 
                     if (field.Type == ScriptFieldType::string)
                     {
-
-                        MonoString* data = scriptInstance->GetFieldValue<MonoString*>(name);
-                        int strLength = mono_string_length(data);
-                        char* buffer = mono_string_to_utf8(data);
-
-                        if (ImGui::InputText(name.c_str(), buffer, strLength, ImGuiInputTextFlags_EnterReturnsTrue) == true)
+                        MonoString* monoStr = scriptInstance->GetFieldValue<MonoString*>(name);
+                    
+                        char* monoBuffer = mono_string_to_utf8(monoStr);
+                    
+                        // Static buffer for ImGui input — large enough for expected strings
+                        static char buffer[256];
+                        strncpy(buffer, monoBuffer, sizeof(buffer));
+                        buffer[sizeof(buffer) - 1] = '\0'; // Always null-terminate
+                    
+                        mono_free(monoBuffer); // Free Mono's UTF8 string after copying
+                    
+                        if (ImGui::InputText(name.c_str(), buffer, sizeof(buffer), ImGuiInputTextFlags_EnterReturnsTrue) == true)
                         {
-                            std::string str(buffer);
-                            mono_free(buffer);
-                            data = mono_string_new(MonoManager::domain, str.c_str());
-                            scriptInstance->SetFieldValue(name, data);
-
+                            MonoString* newMonoStr = mono_string_new(MonoManager::domain, buffer);
+                            scriptInstance->SetStringValue(name, newMonoStr);
                         }
                     }
                 }
@@ -272,16 +275,19 @@ namespace Engine
                         // Display control to set it maybe
                         if (field.Type == ScriptFieldType::string)
                         {
-                            MonoString* data = scriptField.GetValue<MonoString*>();
-                            int strLength = mono_string_length(data);
-                            char* buffer = mono_string_to_utf8(data);
+                            //MonoString* data = scriptField.GetString();
+                            //char* buffer = const_cast<char*>(scriptField.GetString());
+                            char* buffer = const_cast<char*>(scriptField.GetString());
 
-                            if (ImGui::InputText(name.c_str(), buffer, strLength, ImGuiInputTextFlags_EnterReturnsTrue) == true)
+                            //int strLength = mono_string_length(data);
+                            //char* buffer = mono_string_to_utf8(data);
+
+                            if (ImGui::InputText(name.c_str(), buffer, sizeof(buffer), ImGuiInputTextFlags_EnterReturnsTrue) == true)
                             {
-                                std::string str(buffer);
-                                mono_free(buffer);
-                                data = mono_string_new(MonoManager::domain, str.c_str());
-                                scriptField.SetValue(data);
+                                //data = mono_string_new(MonoManager::domain, buffer);
+                                //scriptField.SetValue(buffer);
+                                scriptField.SetValue(buffer);
+
                             }
                         }
                     }
@@ -323,15 +329,17 @@ namespace Engine
                         // Display control to set it maybe
                         if (field.Type == ScriptFieldType::string)
                         {
-                            char buffer[30] = {};
-                            MonoString* data;
+                            char buffer[126] = {};
+                            //MonoString* data;
                             if (ImGui::InputText(name.c_str(), buffer, 30, ImGuiInputTextFlags_EnterReturnsTrue) == true)
                             {
-                                data = mono_string_new(MonoManager::domain, buffer);
+                                //data = mono_string_new(MonoManager::domain, buffer);
 
                                 ScriptFieldInstance& fieldInstance = entityFields[name];
                                 fieldInstance.Field = field;
-                                fieldInstance.SetValue(data);
+                                //fieldInstance.SetString(data);
+                                fieldInstance.SetString(buffer);
+
 
                             }
                         }

@@ -371,7 +371,19 @@ namespace Engine
             {
                 const ScriptFieldMap& fieldMap = EntityScriptFields.at(entityID);
                 for (const auto& [name, fieldInstance] : fieldMap)
-                    instance->SetFieldValueInternal(name, fieldInstance.m_Buffer);
+                {
+                    if (fieldInstance.Field.Type == ScriptFieldType::string)
+                    {
+                        const char* storedChars = reinterpret_cast<const char*>(fieldInstance.m_Buffer);
+                        MonoString* monoStr = mono_string_new(MonoManager::domain, storedChars);
+                        instance->SetFieldValueInternal(name, monoStr);
+
+
+                    }
+                    else
+                        instance->SetFieldValueInternal(name, fieldInstance.m_Buffer);
+
+                }
             }
 
             instance->InvokeOnCreate();
@@ -893,6 +905,32 @@ namespace Engine
 
         const ScriptField& field = it->second;
         mono_field_set_value(m_Instance, field.ClassField, (void*)value);
+
+        //forces a field update
+        //mono_runtime_object_init(m_Instance);
+
+        return true;
+    }
+
+    bool ScriptInstance::SetFieldStringInternal(const std::string& name, MonoString* value)
+    {
+        const auto& fields = m_ScriptClass->GetFields();
+        auto it = fields.find(name);
+        if (it == fields.end())
+            return false;
+
+        const ScriptField& field = it->second;
+
+        if (field.Type != ScriptFieldType::string)
+        {
+            return false;
+        }
+
+        mono_field_set_value(m_Instance, field.ClassField, (void*)value);
+
+        //forces a field update
+        //mono_runtime_object_init(m_Instance);
+
         return true;
     }
 }

@@ -41,24 +41,52 @@ namespace Engine
 
 		ScriptFieldInstance()
 		{
-			memset(m_Buffer, 0, sizeof(m_Buffer));
+			//if(Field.Type == ScriptFieldType::string)
+			//	memset(StringValue, 0, sizeof(StringValue));
+			//else
+			//{
+				memset(m_Buffer, 0, sizeof(m_Buffer));
+
+			//}
+
 		}
 
 		template<typename T>
 		T GetValue()
 		{
-			static_assert(sizeof(T) <= 16, "Type too large!");
+			//static_assert(sizeof(T) <= 16, "Type too large!");
 			return *(T*)m_Buffer;
 		}
 
 		template<typename T>
 		void SetValue(T value)
 		{
-			static_assert(sizeof(T) <= 16, "Type too large!");
+			//static_assert(sizeof(T) <= 16, "Type too large!");
 			memcpy(m_Buffer, &value, sizeof(T));
 		}
+
+		//void SetString(const char* value)
+		//{
+		//	strncpy(StringValue, value, sizeof(StringValue) - 1); // Copy string safely
+		//}
+
+		void SetString(const char* value)
+		{
+			strncpy(reinterpret_cast<char*>(m_Buffer), value, sizeof(m_Buffer) - 1); // Copy string safely
+			m_Buffer[sizeof(m_Buffer) - 1] = '\0'; // Ensure null termination
+		}
+
+
+		const char* GetString() const
+		{
+			//return StringValue;
+			return reinterpret_cast<const char*>(m_Buffer);
+
+		}
+
 	private:
-		uint8_t m_Buffer[16];
+		uint8_t m_Buffer[126];
+		char StringValue[126]; // Separate storage for Mono-managed strings
 
 		friend class MonoManager;
 	};
@@ -115,9 +143,14 @@ namespace Engine
 		template<typename T>
 		void SetFieldValue(const std::string& name, T value)
 		{
-			static_assert(sizeof(T) <= 16, "Type too large!");
+			//static_assert(sizeof(T) <= 16, "Type too large!");
 
 			SetFieldValueInternal(name, &value);
+		}
+
+		void SetStringValue(const std::string& name, MonoString* value)
+		{
+			SetFieldStringInternal(name, value);
 		}
 
 		MonoObject* GetManagedObject() { return m_Instance; }
@@ -126,6 +159,8 @@ namespace Engine
 	private:
 		bool GetFieldValueInternal(const std::string& name, void* buffer);
 		bool SetFieldValueInternal(const std::string& name, const void* value);
+		bool SetFieldStringInternal(const std::string& name, MonoString* value);
+
 	private:
 		Ref<ScriptClass> m_ScriptClass;
 
