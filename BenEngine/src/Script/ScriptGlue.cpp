@@ -262,7 +262,7 @@ namespace Engine
 
             MonoType* managedType = mono_reflection_type_get_type(componentType);
 
-            const char* typeName = mono_type_get_name(managedType);
+            char* typeName = mono_type_get_name(managedType);
             if (!typeName)
             {
                 LOG_ERROR("Failed to retrieve type name");
@@ -271,6 +271,7 @@ namespace Engine
 
             Utils::ProcessAllComponents(entity, typeName, AllComponents{});
 
+            mono_free(typeName);
             return true;
         }
         static bool NativeHasComponent(uint32_t id, MonoReflectionType* componentType)
@@ -291,11 +292,14 @@ namespace Engine
                 if (component)
                 {
                     //LOG_INFO("Component successfully returned.");
+                    mono_free(typeName);
                     return true;
                 }
                 else
                 {
-                    LOG_ERROR("Component not found.");
+                    LOG_WARN("Component not found. ");
+                    mono_free(typeName);
+                    return false;
                 }
             }
             else

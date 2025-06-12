@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;  
+using System.Runtime.CompilerServices;
+using System.IO;
 
 namespace Braveheart
 {
@@ -19,12 +20,16 @@ namespace Braveheart
         {
             Debug.Log("Start");
             Debug.Log(name);
+
+            
+            //Debug.LogWarning(file.Path);
+
         }
 
         public void Update(float delta)
         {
-            Debug.Log(name);
-            Debug.Log(num.ToString());
+            //Debug.Log(name);
+            //Debug.Log(num.ToString());
         }
     }
 }

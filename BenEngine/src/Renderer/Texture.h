@@ -25,7 +25,7 @@ namespace Engine
 		glm::vec2 min = { 0,0 };
 		glm::vec2 max = { 1,1 };
 
-		glm::vec2 textCoords[4];
+		glm::vec2 textCoords[4] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
 
 
 	};

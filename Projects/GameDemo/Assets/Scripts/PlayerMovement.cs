@@ -17,6 +17,9 @@ namespace Braveheart
         NetworkClientComponent client = null;
         float delay = 0.0f;
         Vector3 Pos;
+
+
+        AudioSourceComponent audioSource;
         
         public PlayerMovement() : base()
         {
@@ -26,6 +29,11 @@ namespace Braveheart
         public void Start()
         {
             Debug.Log("Our ID: " + this.id.ToString());
+
+            if(GetComponent<AudioSourceComponent>() != null)
+            {
+                audioSource = GetComponent<AudioSourceComponent>();
+            }
 
             //NetworkClientComponent client = GetComponent<NetworkClientComponent>();
 
@@ -57,7 +65,8 @@ namespace Braveheart
         {
             if (Input.IsMouseClicked(MouseCodes.Button0))
             {
-                GetComponent<AudioSourceComponent>().PlayOneShot();
+                if(audioSource != null)
+                    audioSource.PlayOneShot();
 
                 Vector3 shot = Pos;
                 Vector3 direction = new Vector3(shootDir.x, shootDir.y, 0); // Only affecting X-axis
@@ -70,10 +79,14 @@ namespace Braveheart
 
                 RayCastHit hit = Physics2D.RayCast(GetComponent<TransformComponent>().Translation, shot);
 
-                if(hit.shapeId.Equals(id) == false && hit.count > 0)// != id)
+                if(hit.shapeId != id && hit.count > 0)
                 {
                     GameObject hitObj = new GameObject(hit.shapeId);
-                    if (hitObj.GetComponent<Rigidbody2DComponent>() != null && hitObj.GetComponent<TagComponent>().Name == "Enemy")
+                    
+                    if (hitObj == null || hitObj.GetComponent<TagComponent>().Name != "Enemy")
+                        return;
+
+                    else if (hitObj.GetComponent<Rigidbody2DComponent>() != null)
                     {
                         shot.x /= 10;
                         hitObj.GetComponent<Rigidbody2DComponent>().ApplyLinearImpulseToCentre(new Vector3(shootDir.x, shootDir.y, 0));

@@ -160,6 +160,8 @@ namespace Engine
         Ref<Texture2D> texture;
         float tilingFactor = 1.0f;
 
+        int layer = 0;
+
         //SpriteRendererComponent() = default;
         SpriteRendererComponent() { texture = Project::GetTextureLibrary()->CreateTexture(std::filesystem::current_path().lexically_normal().string() + "/src/Renderer/BasicTextures/WhiteTexture.png"); }
         SpriteRendererComponent(const SpriteRendererComponent&) = default;

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -145,12 +147,11 @@ namespace Braveheart
         }
     }
 
-
     public struct Vector2
     {
         public float x, y;
 
-        public static Vector2   Zero => new Vector2(0.0f);
+        public static Vector2 Zero => new Vector2(0.0f);
 
         //constructors
         public Vector2(float X, float Y)
@@ -224,5 +225,35 @@ namespace Braveheart
 
     };
 
+    public struct FilePath
+    {
+        public string Path { get; set; }
+
+        public FilePath(string path = "")
+        {
+            Path = path;
+        }
+
+        public void SetPath(string newPath)
+        {
+            Path = newPath;
+        }
+
+        public override string ToString()
+        {
+            return Path;
+        }
+
+    }
+
+    public class Project
+    {
+        public static string GetWorkingPath()
+        {
+            string localPath = Directory.GetCurrentDirectory();
+            string baseFolder = Directory.GetParent(localPath)?.FullName;
+            return baseFolder;
+        }
+    }
 
 }

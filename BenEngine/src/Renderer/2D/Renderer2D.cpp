@@ -283,9 +283,9 @@ namespace Engine
             //enable transparancy and dont bother with depth
             glEnable(GL_BLEND);
             //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-            glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA); //use a pre multiplied alpha
-            //glDepthMask(GL_FALSE);
-            glDisable(GL_DEPTH_TEST);  // Not needed for 2D
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //use a pre multiplied alpha
+            glDepthMask(GL_FALSE);
+            //glDisable(GL_DEPTH_TEST);  // Not needed for 2D
 
             s_Data.TextureShader->Bind();
 
@@ -356,10 +356,14 @@ namespace Engine
             s_Data.LineVertexBuffer->SetData(s_Data.LineVertexBufferBase, dataSize);
 
             s_Data.LineShader->Bind();
-
             s_Data.LineVertexArray->Bind();
+
             uint32_t count = s_Data.LineCount ? s_Data.LineCount : s_Data.LineVertexArray->GetIndexBuffer()->GetCount();
-            glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
+
+            glLineWidth(2.0f);  // Improves line visibility
+            glEnable(GL_LINE_SMOOTH);  // Anti-aliasing for smoother lines
+
+            glDrawElements(GL_LINES, count, GL_UNSIGNED_INT, nullptr);
 
             s_Data.Stats.DrawCalls++;
         }
@@ -414,8 +418,9 @@ namespace Engine
     {
         constexpr size_t quadVertexCount = 4;
 
-        constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
-        //const glm::vec2* textureCoords = texture->textCoords;
+        //constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
+        const glm::vec2* textureCoords = texture->textCoords;
+
         const glm::vec2 TillingFactor = { tilingFactor, tilingFactor };
 
         if (s_Data.TextureIndexCount >= Renderer2DData::MaxIndices)
@@ -646,7 +651,7 @@ namespace Engine
 
     }
 
-    std::vector<Ref<SubTexture2D>> Renderer2D::GenerateSpriteSheet(Ref<Texture2D> texture, int sprites, glm::vec2& Table, glm::vec2& spriteSize)
+    std::vector<Ref<SubTexture2D>> Renderer2D::GenerateSpriteSheet(Ref<Texture2D> texture, int sprites, glm::vec2& Table, glm::vec2& CellSize)
     {
         std::vector<Ref<SubTexture2D>> spriteSheet;
         for (int y = 0; y < Table.y; y++)
@@ -654,7 +659,7 @@ namespace Engine
             for (int x = 0; x < Table.x; x++)
             {
                 glm::vec2 coords{ x, y };
-                spriteSheet.push_back(SubTexture2D::CreateFromCoords(texture, coords, spriteSize));
+                spriteSheet.push_back(SubTexture2D::CreateFromCoords(texture, coords, CellSize));
             }
         }
 

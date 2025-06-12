@@ -227,12 +227,31 @@ namespace Engine
                     
                         mono_free(monoBuffer); // Free Mono's UTF8 string after copying
                     
-                        if (ImGui::InputText(name.c_str(), buffer, sizeof(buffer), ImGuiInputTextFlags_EnterReturnsTrue) == true)
+                        if (ImGui::InputText(name.c_str(), buffer, sizeof(buffer), ImGuiInputTextFlags_EnterReturnsTrue))
                         {
                             MonoString* newMonoStr = mono_string_new(MonoManager::domain, buffer);
                             scriptInstance->SetStringValue(name, newMonoStr);
                         }
+                        if (ImGui::BeginDragDropTarget())
+                        {
+                            if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("FILE_PATH"))
+                            {
+                                try
+                                {
+                                    std::filesystem::path dropped = static_cast<const char*>(payload->Data);
+                                    MonoString* newMonoStr = mono_string_new(MonoManager::domain, FileSystem::FindRelativeToProject(dropped).string().c_str());
+                                    scriptInstance->SetStringValue(name, newMonoStr);
+                                }
+                                catch (...)
+                                {
+
+                                }
+                            }
+                            ImGui::EndDragDropTarget();
+                        }
+
                     }
+                    
                 }
             }
         }
@@ -289,7 +308,50 @@ namespace Engine
                                 scriptField.SetValue(buffer);
 
                             }
+                            if (ImGui::BeginDragDropTarget())
+                            {
+                                if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("FILE_PATH"))
+                                {
+                                    try
+                                    {
+                                        std::filesystem::path dropped = static_cast<const char*>(payload->Data);
+                                        scriptField.SetString(FileSystem::FindRelativeToProject(dropped).string().c_str());
+                                    }
+                                    catch (...)
+                                    {
+
+                                    }
+                                }
+                                ImGui::EndDragDropTarget();
+                            }
                         }
+                        //if (field.Type == ScriptFieldType::FilePath)
+                        //{
+                        //    ImGui::Text("Drag File Here:");
+                        //    ImGui::SameLine();
+                        //    if (ImGui::Selectable(const_cast<char*>(scriptField.GetString()))) {
+                        //
+                        //    }
+                        //    if (ImGui::BeginDragDropTarget())
+                        //    {
+                        //        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("FILE_PATH"))
+                        //        {
+                        //            try
+                        //            {
+                        //                std::filesystem::path dropped = static_cast<const char*>(payload->Data);
+                        //
+                        //                ScriptFieldInstance& fieldInstance = entityFields[name];
+                        //                fieldInstance.Field = field;
+                        //                fieldInstance.SetString(FileSystem::FindRelativeToProject(dropped).string().c_str());
+                        //            }
+                        //            catch (...)
+                        //            {
+                        //
+                        //            }
+                        //        }
+                        //        ImGui::EndDragDropTarget();
+                        //    }
+                        //}
                     }
                     else
                     {
@@ -342,7 +404,53 @@ namespace Engine
 
 
                             }
+                            if (ImGui::BeginDragDropTarget())
+                            {
+                                if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("FILE_PATH"))
+                                {
+                                    try
+                                    {
+                                        std::filesystem::path dropped = static_cast<const char*>(payload->Data);
+
+                                        ScriptFieldInstance& fieldInstance = entityFields[name];
+                                        fieldInstance.Field = field;
+                                        fieldInstance.SetString(FileSystem::FindRelativeToProject(dropped).string().c_str());
+                                    }
+                                    catch (...)
+                                    {
+
+                                    }
+                                }
+                                ImGui::EndDragDropTarget();
+                            }
                         }
+                        //if (field.Type == ScriptFieldType::FilePath)
+                        //{
+                        //    ImGui::Text("Drag File Here:");
+                        //    ImGui::SameLine();
+                        //    if (ImGui::Selectable("")) {
+                        //
+                        //    }
+                        //    if (ImGui::BeginDragDropTarget())
+                        //    {
+                        //        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("FILE_PATH"))
+                        //        {
+                        //            try
+                        //            {
+                        //                std::filesystem::path dropped = static_cast<const char*>(payload->Data);
+                        //
+                        //                ScriptFieldInstance& fieldInstance = entityFields[name];
+                        //                fieldInstance.Field = field;
+                        //                fieldInstance.SetString(FileSystem::FindRelativeToProject(dropped).string().c_str());
+                        //            }
+                        //            catch (...)
+                        //            {
+                        //
+                        //            }
+                        //        }
+                        //        ImGui::EndDragDropTarget();
+                        //    }
+                        //}
                     }
                 }
             }
@@ -557,6 +665,12 @@ namespace Engine
 
         ImGUILibrary::DrawComponent<SpriteRendererComponent>("Sprite Renderer", entity, [](auto& component)
             {
+
+                if (ImGui::InputInt("Layer", &component.layer, 1, 1))
+                {
+                    //Renderer2D::AssignToLayer((uint32_t)entity, (SpriteRendererComponent)component);
+                }
+
                 static char searchBuffer[128]; // Buffer for storing search text
                 static std::filesystem::path currentDir;
 
@@ -793,7 +907,7 @@ namespace Engine
                     ImGUILibrary::DrawVec2Control("Sprite Cell Size", component.spriteCellSize, 1.0f, 120);
                     ImGUILibrary::DrawVec2Control("Row & Column Count", component.spriteCellTable, 0.0f, 120);
 
-                    if (ImGui::Button("Generate Sprites", ImVec2(-1, 25)))
+                    if (ImGui::Button("Generate Sprites", ImVec2(-1, 25)) && animation.images.empty() == false)
                     {
                         component.sprites = Renderer2D::GenerateSpriteSheet(Project::GetTextureLibrary()->CreateTexture(component.images[0].string()), 1, component.spriteCellTable, component.spriteCellSize);
                     }

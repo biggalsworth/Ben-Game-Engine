@@ -214,12 +214,40 @@ namespace Engine
 
 		//Draw sprites	
 		{
+			//Old render method, just render all without preference of layers
+			//auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+			//for (auto entity : group)
+			//{
+			//	auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+			//	Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+			//}
+
+
 			auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-			for (auto entity : group)
-			{
-				auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
-				Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+
+			// Use std::vector with reserved memory to avoid multiple reallocations
+			std::vector<entt::entity> sortedEntities;
+			sortedEntities.reserve(group.size());
+
+			for (auto entity : group) {
+				sortedEntities.push_back(entity);
 			}
+
+			// Sort using std::sort without extra memory usage
+			std::sort(sortedEntities.begin(), sortedEntities.end(), [&](entt::entity a, entt::entity b) {
+				return m_Registry.get<SpriteRendererComponent>(a).layer < m_Registry.get<SpriteRendererComponent>(b).layer;
+				});
+
+			// Render in sorted order
+			for (const auto& entity : sortedEntities) {
+				auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+				Renderer2D::DrawSprite(transform.GetTransform(), sprite, static_cast<int>(entity));
+			}
+
+			// Clear vector explicitly to free memory
+			sortedEntities.clear();
+			sortedEntities.shrink_to_fit(); // Reduces capacity after clearing
+
 		}
 		//Draw circles
 		{
@@ -539,12 +567,30 @@ namespace Engine
 
 			// Draw Sprites (Quads)
 			{
+				//Draw by layer
+
 				auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-				for (auto entity : group)
-				{
-					auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
-					Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+
+				std::vector<entt::entity> sortedEntities;
+				sortedEntities.reserve(group.size());
+
+				for (auto entity : group) {
+					sortedEntities.push_back(entity);
 				}
+
+				std::sort(sortedEntities.begin(), sortedEntities.end(), [&](entt::entity a, entt::entity b) {
+					return m_Registry.get<SpriteRendererComponent>(a).layer < m_Registry.get<SpriteRendererComponent>(b).layer;
+					});
+
+				// Render in sorted order
+				for (const auto& entity : sortedEntities) {
+					auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+					Renderer2D::DrawSprite(transform.GetTransform(), sprite, static_cast<int>(entity));
+				}
+
+				// Clear vector explicitly to free memory
+				sortedEntities.clear();
+				sortedEntities.shrink_to_fit(); // Reduces capacity after clearing
 			}
 			{
 				auto view = m_Registry.view<TransformComponent, CircleRendererComponent>();

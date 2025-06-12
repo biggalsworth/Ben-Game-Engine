@@ -1,9 +1,9 @@
 Entities:
-  - Entity: 930378236577284970
+  - Entity: 1328212214574276428
     RelationshipComponent:
       Parent: 4294967295
     TagComponent:
-      Tag: Square
+      Tag: Player
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
@@ -13,9 +13,25 @@ Entities:
       meshType: 0
       Path: Ben-Game-Engine\BenEngine/src/Renderer/BasicTextures/WhiteTexture.png
       tilingFactor: 1
+    Rigidbody2DComponent:
+      fixedRotation: false
+      GravityScale: 0
+      Mass: 1
+      LinearDamping: 1
+      AngularDamping: 0
+      Type: 2
+      RuntimeBody: false
+    BoxCollider2DComponent:
+      Friction: 0.5
+      Offset: [0, 0]
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      RuntimeFixture: false
+      type: 0
+      isTrigger: false
     ScriptComponentManager:
       count: 1
     ScriptComponent0:
       folderPath: E:\Coding\Github\Ben-Game-Engine\BenEngine\../Projects/GameDemo\Assets/Scripts
-      filePath: Ben-Game-Engine\BenEngine\../Projects/GameDemo\Assets/Scripts\TestScript.cs
-      className: TestScript
+      filePath: Ben-Game-Engine\BenEngine\../Projects/GameDemo\Assets\Scripts\PlayerMovement.cs
+      className: PlayerMovement

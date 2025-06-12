@@ -50,7 +50,7 @@ namespace Engine
 		static void DrawCollider(const glm::mat4& transform, BoxCollider2DComponent& src, int entityID);
 		static void DrawColliderCircle(const glm::mat4& transform, CircleCollider2DComponent& src, int entityID);
 
-		static std::vector<Ref<SubTexture2D>> GenerateSpriteSheet(Ref<Texture2D> texture, int sprites, glm::vec2& Table, glm::vec2& spriteSize);
+		static std::vector<Ref<SubTexture2D>> GenerateSpriteSheet(Ref<Texture2D> texture, int sprites, glm::vec2& Table, glm::vec2& CellSize);
 
 
 		struct Statistics

@@ -21,6 +21,9 @@ namespace Engine
     ContentPanel::ContentPanel() : 
         m_CurrentDirectory(s_AssetsPath)
     {
+        FileIcon = Project::LoadTextureFromFile("src/Extra/Icons/UI/file.png");
+        FolderIcon = Project::LoadTextureFromFile("src/Extra/Icons/UI/folder.png");
+        pathBuffer = "";
     }
 
     void ContentPanel::SetContext(const Ref<Scene>& context)
@@ -167,6 +170,7 @@ namespace Engine
                 if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
                 {
                     m_SelectedFile = "";
+                    pathBuffer = "";
                 }
 
 
@@ -286,7 +290,8 @@ namespace Engine
                     {
                         std::filesystem::rename(path, newPath);
                         std::cout << "File renamed successfully to " << newPath.string() << ".\n";
-                        m_SelectedPath = "";
+                        if(m_SelectedPath == path)
+                            m_SelectedPath = "";
                     }
                     catch (const std::filesystem::filesystem_error& e) {
                         std::cerr << "Error renaming the file: " << e.what() << '\n';
@@ -304,7 +309,8 @@ namespace Engine
                 ImGui::Text("THIS CANNOT BE UNDONE!\nProceed?");
                 ImGUILibrary::DrawMenuItem("Yes", [this, path](Ref<Scene> m_Context) {
 
-                    m_SelectedPath = "";
+                    if (m_SelectedPath == path)
+                        m_SelectedPath = "";
 
                     if (std::filesystem::remove(path) == 0) {
                         LOG_WARN("File deleted successfully.\n");
@@ -332,29 +338,27 @@ namespace Engine
         auto relativePathString = path.string(); //string of the path we are looking at
 
         ImGui::PushID(relativePathString.c_str());
-        if (!it.is_directory())// if the iterator is not a file
+        //Show files
+        if (!it.is_directory())
         {
             ImGui::TableNextColumn();
 
 
             ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 1.0f, 1.0f, 0.0f));
             ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 10.0f);
-            GLuint texture = Project::LoadTextureFromFile("src/Extra/Icons/UI/file.png");
+            //GLuint texture = Project::LoadTextureFromFile("src/Extra/Icons/UI/file.png");
 
             if (m_SelectedFile == path.string()) {
                 ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.6f, 0.6f, 0.5f)); // Highlight color
             }
-            if (ImGui::ImageButton(path.filename().string().c_str(), (ImTextureID)(intptr_t)texture, ImVec2(60.0f, 60.0f)))
+
+            if (ImGui::ImageButton(path.filename().string().c_str(), (ImTextureID)(intptr_t)FileIcon, ImVec2(60.0f, 60.0f)))
             {
-                //if (m_SelectedFile != path.string())
                 m_SelectedFile = path.string();
-                //else
-                //{
-                //    system(("start " + relativePathString).c_str()); // Opens with the default program
-                //}
             }
+
             if (m_SelectedFile == path.string()) {
-                ImGui::PopStyleColor(); // Restore default color
+                ImGui::PopStyleColor();
             }
 
 
@@ -388,15 +392,10 @@ namespace Engine
 
                     if (ImGui::Button("Apply"))
                     {
+                        inputBuffer[0] = '\0';
+
                         newPath.replace_filename(std::string(inputBuffer) + fileExtension);
 
-                        //if (std::rename( m_SelectedFile.c_str(), newPath.string().c_str()) == 0) {
-                        //    std::cout << "File renamed successfully.\n";
-                        //}
-                        //else 
-                        //{
-                        //    LOG_ERROR("Error renaming the file");
-                        //}
                         try {
                             std::filesystem::rename(m_SelectedFile, newPath);
                             std::cout << "File renamed successfully to " << newPath.string() << ".\n";
@@ -416,8 +415,6 @@ namespace Engine
                 {
                     ImGui::Text("THIS CANNOT BE UNDONE!\nProceed?");
                     ImGUILibrary::DrawMenuItem("Yes", [this](Ref<Scene> m_Context) {
-
-                        m_SelectedPath = "";
 
                         if (std::filesystem::remove(m_SelectedFile) == 0) {
                             LOG_WARN("File deleted successfully.\n");
@@ -443,6 +440,105 @@ namespace Engine
             ImGui::PopStyleVar();
             ImGui::PopStyleColor();
 
+        }
+        //Show folders
+        else
+        {
+            ImGui::TableNextColumn();
+
+
+            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 1.0f, 1.0f, 0.0f));
+            ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 10.0f);
+
+            if (pathBuffer == path) {
+                ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.6f, 0.6f, 0.5f)); // Highlight color
+            }
+
+            if (ImGui::ImageButton(path.filename().string().c_str(), (ImTextureID)(intptr_t)FolderIcon, ImVec2(60.0f, 60.0f)))
+            {
+            }
+
+            if (pathBuffer == path) 
+            {
+                ImGui::PopStyleColor();
+            }
+
+            //Allow the ability to drag files
+            if (ImGui::BeginDragDropSource())
+            {
+                ImGui::SetDragDropPayload("FILE_PATH", relativePathString.c_str(), relativePathString.size() + 1);
+                ImGui::EndDragDropSource();
+            }
+            if (ImGui::IsItemClicked())
+            {
+                if (pathBuffer == path)
+                    m_SelectedPath = path;
+                else
+                    pathBuffer = path;
+            }
+
+            if (ImGui::BeginPopupContextItem())
+            {
+                pathBuffer = path;
+
+                if (ImGui::BeginMenu("Rename"))
+                {
+                    static char inputBuffer[128] = "";
+
+                    std::filesystem::path newPath = path;
+
+                    ImGui::InputTextWithHint("##NewName", "File Name...", inputBuffer, IM_ARRAYSIZE(inputBuffer));
+
+                    if (ImGui::Button("Apply"))
+                    {
+                        inputBuffer[0] = '\0';
+
+                        newPath.replace_filename(std::string(inputBuffer));
+
+                        try {
+                            std::filesystem::rename(path, newPath);
+                            std::cout << "File renamed successfully to " << newPath.string() << ".\n";
+                        }
+                        catch (const std::filesystem::filesystem_error& e) {
+                            std::cerr << "Error renaming the file: " << e.what() << '\n';
+                        }
+
+
+                    }
+
+                    ImGui::EndMenu(); // End "Create Object"
+                }
+
+
+                if (ImGui::BeginMenu("Delete"))
+                {
+                    ImGui::Text("THIS CANNOT BE UNDONE!\nProceed?");
+                    ImGUILibrary::DrawMenuItem("Yes", [this](Ref<Scene> m_Context) {
+
+
+                        if (std::filesystem::remove(pathBuffer) == 0) {
+                            LOG_WARN("File deleted successfully.\n");
+                        }
+                        else
+                        {
+                            LOG_ERROR("Error deleting the file");
+                        }
+
+                        }, m_Context);
+
+                    ImGui::EndMenu(); // End "Create Object"
+                }
+
+                ImGui::EndPopup();
+            }
+
+
+            ImGuiIO io = ImGui::GetIO();
+            ImGui::PushFont(UI::Fonts["righteous-small"]); //fonts are compiled when in ImGuilayer.OnAttach()
+            ImGui::Text(path.filename().string().c_str());
+            ImGui::PopFont();
+            ImGui::PopStyleVar();
+            ImGui::PopStyleColor();
         }
         ImGui::PopID();
     }
@@ -483,13 +579,6 @@ namespace Engine
 
                     inputBuffer[0] = '\0';
 
-                    //if (std::rename( m_SelectedFile.c_str(), newPath.string().c_str()) == 0) {
-                    //    std::cout << "File renamed successfully.\n";
-                    //}
-                    //else 
-                    //{
-                    //    LOG_ERROR("Error renaming the file");
-                    //}
                     try {
                         std::filesystem::rename(m_SelectedPath, newPath);
                         std::cout << "File renamed successfully to " << newPath.string() << ".\n";

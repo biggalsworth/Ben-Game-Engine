@@ -36,6 +36,7 @@ namespace Engine
 
         { "Braveheart.GameObject", ScriptFieldType::GameObject },
         { "System.String", ScriptFieldType::string },
+        { "Braveheart.FilePath", ScriptFieldType::FilePath },
     };
 
 
@@ -829,19 +830,26 @@ namespace Engine
             return nullptr;
         }
 
-        MonoObject* exception = nullptr;
-        MonoObject* result = mono_runtime_invoke(method, instance, params, &exception);
-
-        if (exception)
+        try
         {
-            MonoString* excString = mono_object_to_string(exception, nullptr);
-            const char* excCString = mono_string_to_utf8(excString);
-            LOG_ERROR(std::string("InvokeMethod Exception: ") + excCString);
-            mono_free((void*)excCString);
-            return nullptr;
-        }
+            MonoObject* exception = nullptr;
+            MonoObject* result = mono_runtime_invoke(method, instance, params, &exception);
 
-        return result;
+            if (exception)
+            {
+                MonoString* excString = mono_object_to_string(exception, nullptr);
+                const char* excCString = mono_string_to_utf8(excString);
+                LOG_WARN(std::string("InvokeMethod Exception: ") + excCString);
+                mono_free((void*)excCString);
+                return nullptr;
+            }
+
+            return result;
+
+        }
+        catch (...)
+        {
+        };
     }
 
 

@@ -54,7 +54,10 @@ namespace Engine
 			glBindTexture(GL_TEXTURE_2D, textureID);
 
 			int width, height, nrComponents;
+
+			stbi_set_flip_vertically_on_load(false);
 			unsigned char* data = stbi_load(filename, &width, &height, &nrComponents, 0);
+
 			if (data) {
 				GLenum format;
 				if (nrComponents == 1)

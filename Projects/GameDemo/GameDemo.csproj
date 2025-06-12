@@ -64,6 +64,7 @@
   <ItemGroup>
     <None Include="Assets\Audio\laser-shot-ingame-230500.mp3" />
     <None Include="Assets\Prefabs\Player.EEF" />
+    <None Include="Assets\Prefabs\Square.EEF" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\EnemyDetection.cs" />
     <Compile Include="Assets\Scripts\EnemyStats.cs" />
