@@ -25,6 +25,7 @@
 *.la
 *.a
 *.lib
+!BenEngine/Middleware/**/*.lib
 
 # Executables
 #*.exe
