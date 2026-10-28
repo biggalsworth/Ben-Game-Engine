@@ -15,6 +15,7 @@
 *.so
 *.dylib
 *.dll
+!BenEngine/Middleware/**/*.dll
 
 # Fortran module files
 *.mod
